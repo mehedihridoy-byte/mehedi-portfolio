@@ -55,7 +55,7 @@ export const personalInfo = {
   statusBadge: "Available for High-Impact Roles & Projects",
   email: "mehedihassan.ops@gmail.com",
   linkedin: "https://linkedin.com/in/mehedihassan-ops",
-  github: "https://github.com/mehedihassan-ops",
+  github: "https://github.com/mehedihridoy-byte",
   resumeUrl: "/resume-mehedi-hassan.pdf",
 };
 

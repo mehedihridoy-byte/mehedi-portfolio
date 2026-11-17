@@ -1,0 +1,129 @@
+---
+import { FileDown, Menu, X, Sparkles } from 'lucide-astro';
+import { personalInfo } from '../data/portfolioData';
+
+const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#awards", label: "Awards" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-[#07090E]/80 border-b border-white/[0.06] transition-all">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Brand / Name Badge -->
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 p-[1px] shadow-sm shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all">
+        <div class="w-full h-full bg-[#0B0F17] rounded-[11px] flex items-center justify-center font-bold text-emerald-400 text-sm tracking-wider font-mono">
+          MH
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-semibold text-slate-100 group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+          Md. Mehedi Hassan
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        </span>
+        <span class="text-[11px] text-slate-400 font-mono tracking-tight">Ops & Analytics</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center gap-1 bg-slate-900/40 p-1.5 rounded-full border border-white/[0.05]">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-full transition-all"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Action Buttons -->
+    <div class="hidden sm:flex items-center gap-3">
+      <a
+        href={personalInfo.resumeUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 hover:border-emerald-500/40 transition-all shadow-sm"
+      >
+        <FileDown class="w-3.5 h-3.5" />
+        <span>Resume</span>
+      </a>
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-slate-900 hover:bg-slate-200 transition-all font-semibold shadow-sm"
+      >
+        <span>Hire Me</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button
+      id="mobile-menu-btn"
+      aria-label="Toggle Navigation Menu"
+      class="md:hidden p-2 rounded-lg bg-slate-900/60 border border-slate-800 text-slate-300 hover:text-white"
+    >
+      <Menu id="menu-icon" class="w-5 h-5" />
+      <X id="close-icon" class="w-5 h-5 hidden" />
+    </button>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-b border-white/[0.08] bg-[#090C13]/95 backdrop-blur-2xl px-5 py-4 space-y-2"
+  >
+    <div class="grid grid-cols-2 gap-2 pt-1 pb-3">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-emerald-400 hover:bg-white/[0.04] transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <div class="pt-3 border-t border-white/[0.06] flex flex-col gap-2">
+      <a
+        href={personalInfo.resumeUrl}
+        class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+      >
+        <FileDown class="w-4 h-4" />
+        <span>Download Full CV</span>
+      </a>
+      <a
+        href="#contact"
+        class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-semibold bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-colors"
+      >
+        <span>Get in Touch</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    });
+  });
+</script>

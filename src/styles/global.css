@@ -2,59 +2,239 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* Rifat-style Design System Variables */
+:root {
+  --paper: #fafaf8;
+  --surface: #ffffff;
+  --surface-hover: #f0f0ee;
+  --line: #e4e4e2;
+  --ring: #cfcfcb;
+  --ink: #0e0e0e;
+  --ink-soft: #2e2e32;
+  --ink-muted: #55555a;
+  --ink-subtle: #6b6b70;
+  --ink-faint: #808085;
+  --on-ink: #fafaf8;
+  --on-ink-muted: #a3a3a8;
+  --ink-raised: #17171a;
+  --ink-line: #3a3a3e;
+  --ink-divider: #2a2a2e;
+
+  /* Accent Colors */
+  --red: #e8322b;
+  --red-deep: #c8231c;
+  --sky: #8fd3ff;
+  --lime: #b6f07a;
+  --butter: #ffe14d;
+  --pink: #ff9ec0;
+
+  /* Typography */
+  --font-display: "Bricolage Grotesque", "Hanken Grotesk", system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: "Spline Sans Mono", ui-monospace, monospace;
+  --font-hand: "Caveat", "Comic Sans MS", cursive;
+
+  /* Hard Shadows */
+  --shadow-sticker: 1.5px 1.5px 0 var(--ink);
+  --shadow-card: 4px 4px 0 var(--ink);
+  --shadow-card-hover: 8px 8px 0 var(--ink);
+  --shadow-card-sm: 2.5px 2.5px 0 var(--ink);
+  --border-hard: 1.5px solid var(--ink);
+}
+
+:root[data-theme="after-hours"] {
+  color-scheme: dark;
+  --paper: #141416;
+  --surface: #1d1d20;
+  --surface-hover: #27272b;
+  --line: #2c2c30;
+  --ring: #3c3c41;
+  --ink: #f2f2ef;
+  --ink-soft: #d4d4d0;
+  --ink-muted: #a1a1a6;
+  --ink-subtle: #8a8a90;
+  --ink-faint: #707076;
+  --on-ink: #0e0e0e;
+  --on-ink-muted: #55555a;
+  --sky: #86c8f5;
+  --lime: #aee57a;
+  --butter: #f6d94a;
+  --pink: #f79bbd;
+  --shadow-sticker: 1.5px 1.5px 0 var(--ink);
+  --shadow-card: 4px 4px 0 var(--ink);
+  --shadow-card-hover: 8px 8px 0 var(--ink);
+  --shadow-card-sm: 2.5px 2.5px 0 var(--ink);
+  --border-hard: 1.5px solid var(--ink);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
   }
 
   body {
-    background-color: #07090e;
-    color: #e2e8f0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    transition: background-color 0.25s ease, color 0.25s ease;
     overflow-x: hidden;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #0b0f17;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 4px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+  ::selection {
+    background: var(--butter);
+    color: #0e0e0e;
   }
 }
 
-/* Bento Card Style */
-.bento-card {
+/* Custom Utilities for Rifat Aesthetic */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans);
+}
+
+.font-mono-clean {
+  font-family: var(--font-mono);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+/* Logo */
+.rk-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.rk-logo:after {
+  content: ".";
+  color: var(--red);
+}
+
+/* Eyebrows */
+.rk-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Buttons */
+.rk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 14px;
+  border: var(--border-hard);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.3, 1.5, 0.5, 1);
+  text-decoration: none;
+  box-shadow: var(--shadow-card-sm);
+}
+
+.rk-btn:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: var(--shadow-card);
+}
+
+.rk-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 transparent;
+}
+
+.rk-btn--ink {
+  background-color: var(--ink);
+  color: var(--on-ink);
+  border-color: var(--ink);
+}
+
+.rk-btn--out {
+  background-color: var(--surface);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* Hard-shadow Cards */
+.rk-card {
+  background-color: var(--surface);
+  border: var(--border-hard);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+.rk-card:hover {
+  transform: translate(-2px, -3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Tilted Color Stickers */
+.rk-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: var(--border-hard);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: var(--shadow-sticker);
+  color: #0e0e0e !important;
+}
+
+.rk-fill-lime {
+  background-color: var(--lime) !important;
+}
+
+.rk-fill-sky {
+  background-color: var(--sky) !important;
+}
+
+.rk-fill-butter {
+  background-color: var(--butter) !important;
+}
+
+.rk-fill-pink {
+  background-color: var(--pink) !important;
+}
+
+/* Handwritten Note Callouts */
+.rk-note {
+  font-family: var(--font-hand);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--red);
+  display: inline-block;
+  transform: rotate(-3deg);
+  line-height: 1.1;
+}
+
+/* Squiggly Underline */
+.rk-squiggle {
   position: relative;
-  background: radial-gradient(120% 120% at 50% 0%, rgba(26, 34, 52, 0.45) 0%, rgba(11, 15, 23, 0.8) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1rem;
-  backdrop-filter: blur(12px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  white-space: nowrap;
 }
 
-.bento-card:hover {
-  border-color: rgba(16, 185, 129, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
-  transform: translateY(-2px);
-}
-
-.badge-glow {
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
-}
-
-/* Subtle grid background */
-.bg-grid-pattern {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+.rk-squiggle svg {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 14px;
+  pointer-events: none;
 }

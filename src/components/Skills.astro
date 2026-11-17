@@ -1,88 +1,75 @@
 ---
-import { Table, Zap, PieChart, Briefcase, Sparkles, CheckCircle2 } from 'lucide-astro';
 import { skillsCategories } from '../data/portfolioData';
 
-const iconMap: Record<string, any> = {
-  Table,
-  Zap,
-  PieChart,
-  Briefcase,
-};
+const toolsList = [
+  { name: "Advanced Excel", color: "rk-fill-lime", tilt: "-2deg" },
+  { name: "Google Sheets", color: "rk-fill-sky", tilt: "1.5deg" },
+  { name: "Google Apps Script", color: "rk-fill-butter", tilt: "-1.5deg" },
+  { name: "Power Query", color: "rk-fill-pink", tilt: "2deg" },
+  { name: "SQL (Postgres/MySQL)", color: "rk-fill-sky", tilt: "-2deg" },
+  { name: "Python / Pandas", color: "rk-fill-butter", tilt: "1deg" },
+  { name: "Power BI", color: "rk-fill-lime", tilt: "-1deg" },
+  { name: "VBA & Macros", color: "rk-fill-pink", tilt: "2.5deg" },
+  { name: "REST APIs & Webhooks", color: "rk-fill-sky", tilt: "-2deg" },
+  { name: "Notion & Asana", color: "rk-fill-butter", tilt: "1.5deg" },
+];
+
+const categorySquareColors = ["rk-fill-lime", "rk-fill-sky", "rk-fill-butter", "rk-fill-pink"];
 ---
 
-<section id="skills" class="py-16 md:py-24 relative border-t border-white/[0.05]">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <!-- Section Heading -->
-    <div class="space-y-2 mb-12">
-      <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-        <Sparkles class="w-3.5 h-3.5" />
-        <span>SKILLS & TOOLSET</span>
-      </div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-        Technical Fluency & Operational Capabilities
+<section id="skills" class="py-20 border-t border-[var(--line)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8 space-y-16">
+    <!-- Section Header -->
+    <div>
+      <span class="rk-eyebrow">05 · SKILLS & METHODOLOGIES</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--ink)] mt-2">
+        Working stack & core competencies<span class="text-[var(--red)]">.</span>
       </h2>
-      <p class="text-slate-400 max-w-2xl text-base">
-        A breakdown of the specialized software, scripting languages, and operational methodologies I use to drive business impact.
-      </p>
     </div>
 
-    <!-- Skills Bento Grid (2x2) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {skillsCategories.map((cat) => {
-        const IconComponent = iconMap[cat.icon] || Table;
-        return (
-          <div class="bento-card p-6 sm:p-8 space-y-6 border border-white/[0.08] hover:border-emerald-500/30 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <!-- Category Header -->
-              <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
-                    <IconComponent class="w-5 h-5" />
-                  </div>
-                  <h3 class="text-lg font-bold text-white">
-                    {cat.category}
-                  </h3>
-                </div>
-                <span class="text-xs font-mono text-slate-500">
-                  {cat.skills.length} skills
-                </span>
-              </div>
-
-              <!-- Skills List Pills -->
-              <div class="flex flex-wrap gap-2 pt-2">
-                {cat.skills.map((skill) => (
-                  <div
-                    class={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono border transition-all ${
-                      skill.highlight
-                        ? 'bg-emerald-500/[0.08] text-slate-100 border-emerald-500/30 shadow-sm'
-                        : 'bg-slate-900/60 text-slate-300 border-white/[0.05]'
-                    }`}
-                  >
-                    <span>{skill.name}</span>
-                    <span
-                      class={`text-[10px] px-1.5 py-0.2 rounded font-medium ${
-                        skill.level === 'Expert'
-                          ? 'bg-emerald-500/20 text-emerald-300'
-                          : skill.level === 'Advanced'
-                          ? 'bg-cyan-500/20 text-cyan-300'
-                          : 'bg-slate-800 text-slate-400'
-                      }`}
-                    >
-                      {skill.level}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <!-- Bottom Note -->
-            <div class="pt-4 border-t border-white/[0.04] text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              <span>Constantly tested & refined in live business workflows</span>
-            </div>
+    <!-- Skills 2x2 Grid with Square Indicators like Rifat's site -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {skillsCategories.map((cat, idx) => (
+        <div class="rk-card p-6 sm:p-8 space-y-5">
+          <div class="flex items-center gap-3 pb-3 border-b border-[var(--line)]">
+            <span class={`w-4 h-4 rounded-md border border-[var(--ink)] ${categorySquareColors[idx % categorySquareColors.length]}`} aria-hidden="true"></span>
+            <h3 class="font-display text-xl font-bold text-[var(--ink)]">
+              {cat.category}
+            </h3>
           </div>
-        );
-      })}
+
+          <div class="flex flex-wrap gap-2 pt-1 font-mono-clean text-xs">
+            {cat.skills.map((skill) => (
+              <span class={`px-3 py-1.5 rounded-lg border border-[var(--line)] transition-all ${skill.highlight ? 'bg-[var(--surface-hover)] font-bold text-[var(--ink)] shadow-sm' : 'bg-[var(--paper)] text-[var(--ink-soft)]'}`}>
+                {skill.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Tilted Stickers Shelf: "TOOLS I REACH FOR" (Signature Rifat bin Alam Element!) -->
+    <div class="rk-card p-8 sm:p-10 space-y-6 bg-[var(--surface)]">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[var(--line)]">
+        <span class="font-mono-clean text-xs uppercase tracking-widest text-[var(--ink-muted)] font-bold">
+          TOOLS I REACH FOR DAILY
+        </span>
+        <span class="font-hand text-xl text-[var(--red)]" style="transform: rotate(-2deg);">
+          tested in real operating trenches!
+        </span>
+      </div>
+
+      <div class="flex flex-wrap gap-3 pt-2">
+        {toolsList.map((tool) => (
+          <span
+            class={`rk-sticker ${tool.color} text-sm cursor-default hover:scale-110 transition-transform`}
+            style={`transform: rotate(${tool.tilt});`}
+          >
+            {tool.name}
+          </span>
+        ))}
+      </div>
     </div>
   </div>
 </section>

@@ -1,138 +1,101 @@
 ---
-import { ArrowUpRight, FileDown, Sparkles, CheckCircle2, Terminal, Table, Cpu, ShieldCheck } from 'lucide-astro';
 import { personalInfo, keyMetrics } from '../data/portfolioData';
 ---
 
-<section class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <!-- Top Pill Status Badge -->
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-medium mb-8 backdrop-blur-md shadow-sm">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-      <span class="w-2 h-2 -ml-3 rounded-full bg-emerald-400"></span>
-      <span>{personalInfo.statusBadge}</span>
+<section id="home" class="pt-16 pb-20 md:pt-24 md:pb-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8">
+    <!-- Top Eyebrow + Pill -->
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <span class="rk-eyebrow">00 · OPERATIONS LEAD & DATA ANALYST</span>
+      <span class="rk-sticker rk-fill-lime" style="transform: rotate(-1.5deg);">
+        Available for opportunities ✓
+      </span>
     </div>
 
-    <!-- Main Headline Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-      <!-- Left Content -->
-      <div class="lg:col-span-8 space-y-6">
-        <div>
-          <h2 class="text-sm uppercase tracking-widest text-emerald-400 font-mono font-semibold mb-3">
-            Operations & Data Analytics
-          </h2>
-          <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-            Md. Mehedi <br />
-            <span class="bg-gradient-to-r from-slate-100 via-emerald-200 to-teal-400 bg-clip-text text-transparent">
-              Hassan
-            </span>
-          </h1>
-        </div>
+    <!-- Main Hero Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <!-- Left Hero Headline & Bio (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-[var(--ink)] leading-[1.05]">
+          Turning operational friction into 
+          <span class="rk-squiggle text-[var(--ink)]">
+            automated
+            <svg viewBox="0 0 600 28" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M4 16 Q 40 2 76 16 T 148 16 T 220 16 T 292 16 T 364 16 T 436 16 T 508 16 T 580 16" fill="none" stroke="var(--red)" stroke-width="7" stroke-linecap="round"></path>
+            </svg>
+          </span> 
+          precision<span class="text-[var(--red)]">.</span>
+        </h1>
 
-        <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
-          {personalInfo.tagline}
+        <p class="text-lg sm:text-xl text-[var(--ink-soft)] leading-relaxed font-sans-clean max-w-2xl">
+          I'm <strong class="text-[var(--ink)] font-bold">Md. Mehedi Hassan</strong>. I engineer advanced Microsoft Excel architectures, Google Apps Script pipelines, and executive KPI dashboards where complex daily logistics meet zero-touch automation.
         </p>
 
-        <p class="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
-          {personalInfo.shortBio}
-        </p>
-
-        <!-- CTA Action Buttons -->
-        <div class="flex flex-wrap items-center gap-3 pt-3">
-          <a
-            href="#projects"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-semibold text-sm hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 hover:-translate-y-0.5"
-          >
-            <span>Explore Case Studies</span>
-            <ArrowUpRight class="w-4 h-4" />
+        <!-- CTA Buttons + Handwritten Caveat Callout -->
+        <div class="pt-2 flex flex-wrap items-center gap-4 relative">
+          <a href="#work" class="rk-btn rk-btn--ink">
+            Explore my work ↗
+          </a>
+          <a href={personalInfo.resumeUrl} target="_blank" class="rk-btn rk-btn--out">
+            Download CV (PDF) ↓
           </a>
 
-          <a
-            href={personalInfo.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-medium text-sm transition-all hover:border-emerald-500/40 hover:-translate-y-0.5"
-          >
-            <FileDown class="w-4 h-4 text-emerald-400" />
-            <span>Download CV (PDF)</span>
-          </a>
-
-          <a
-            href="#contact"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-slate-400 hover:text-white font-medium text-sm transition-colors"
-          >
-            <span>Get in Touch</span>
-          </a>
+          <!-- Handwritten Note Arrow (Caveat font) -->
+          <div class="hidden sm:flex items-center gap-2 font-hand text-2xl text-[var(--red)] ml-2" style="transform: rotate(-3deg);">
+            <svg width="34" height="28" viewBox="0 0 40 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="inline-block">
+              <path d="M8 22 C 18 10, 28 8, 36 16"></path>
+              <path d="M30 18 L 36 16 L 35 10"></path>
+            </svg>
+            <span>120+ hours saved every month!</span>
+          </div>
         </div>
       </div>
 
-      <!-- Right Bento Hero Visual Box -->
-      <div class="lg:col-span-4">
-        <div class="bento-card p-6 border border-white/[0.08] relative overflow-hidden group">
-          <!-- Ambient card glow -->
-          <div class="absolute -top-16 -right-16 w-36 h-36 bg-emerald-500/10 blur-2xl rounded-full"></div>
-          
-          <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
-            <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
-              <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-              <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-            </div>
-            <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-              ops_engine.gs
+      <!-- Right Card: Neo-brutalist Floating Stats & Pipeline (5 cols) -->
+      <div class="lg:col-span-5">
+        <div class="rk-card p-6 sm:p-8 space-y-6 relative bg-[var(--surface)]">
+          <!-- Tilted Stamp -->
+          <div class="flex items-center justify-between pb-4 border-b border-[var(--line)]">
+            <span class="font-mono-clean text-xs font-bold text-[var(--ink)] flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[var(--red)] inline-block"></span>
+              OPS_PIPELINE.GS
+            </span>
+            <span class="rk-sticker rk-fill-butter text-[11px]" style="transform: rotate(2deg);">
+              100% Zero-Touch
             </span>
           </div>
 
-          <!-- Simulated Live Code / Script Snippet -->
-          <div class="pt-4 font-mono text-xs text-slate-300 space-y-2.5">
-            <div class="text-slate-500">// Automated Ops Pipeline</div>
+          <!-- Simulated Live Formula & Code Execution -->
+          <div class="font-mono-clean text-xs space-y-2 p-3.5 rounded-xl bg-[var(--paper)] border border-[var(--line)]">
+            <div class="text-[var(--ink-muted)]">// Auto-reconciling 50,000+ entries</div>
             <div>
-              <span class="text-teal-400">function</span> <span class="text-emerald-300">syncOpsData</span>() {'{'}
+              <span class="text-[var(--red)] font-bold">=QUERY</span>(raw_records, 
             </div>
-            <div class="pl-4 text-slate-400">
-              <span class="text-slate-500">const</span> raw = <span class="text-cyan-300">importDailyRecords</span>();
+            <div class="pl-3 text-[var(--ink-soft)]">
+              "SELECT Dept, SUM(Cost), COUNT(ID)"
             </div>
-            <div class="pl-4 text-slate-400">
-              <span class="text-slate-500">const</span> clean = <span class="text-cyan-300">validateIntegrity</span>(raw);
+            <div class="pl-3 text-[var(--ink-soft)]">
+              "WHERE Status = 'Verified'")
             </div>
-            <div class="pl-4 text-emerald-400 bg-emerald-500/[0.07] py-1 px-1.5 rounded border border-emerald-500/20">
-              ▶ dispatchAlerts(&#123; status: <span class="text-white">"100% Synced"</span> &#125;);
+            <div class="mt-2 pt-2 border-t border-[var(--line)] flex items-center justify-between text-[11px]">
+              <span class="text-[var(--ink-muted)]">Run Latency:</span>
+              <span class="font-bold text-[var(--ink)] bg-[var(--lime)] px-1.5 py-0.5 rounded border border-[var(--ink)]">180ms</span>
             </div>
-            <div class="pl-4 text-slate-400">
-              <span class="text-teal-400">return</span> <span class="text-cyan-300">renderExecutiveKPIs</span>(clean);
-            </div>
-            <div>{'}'}</div>
           </div>
 
-          <!-- Quick Value Badges -->
-          <div class="mt-6 pt-4 border-t border-white/[0.06] grid grid-cols-2 gap-2 text-center font-mono">
-            <div class="bg-slate-900/60 p-2.5 rounded-lg border border-white/[0.04]">
-              <div class="text-[10px] text-slate-400">DAILY RUNS</div>
-              <div class="text-sm font-bold text-emerald-400">Auto Triggered</div>
+          <!-- Highlight Stats Grid -->
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="p-3 rounded-xl border border-[var(--line)] bg-[var(--surface)] text-center">
+              <div class="font-display text-3xl font-extrabold text-[var(--ink)]">120+</div>
+              <div class="font-mono-clean text-[11px] text-[var(--ink-muted)] mt-0.5">Hours Saved / Mo</div>
             </div>
-            <div class="bg-slate-900/60 p-2.5 rounded-lg border border-white/[0.04]">
-              <div class="text-[10px] text-slate-400">INTEGRITY</div>
-              <div class="text-sm font-bold text-cyan-400">100% Enforced</div>
+            <div class="p-3 rounded-xl border border-[var(--line)] bg-[var(--surface)] text-center">
+              <div class="font-display text-3xl font-extrabold text-[var(--ink)]">99.9%</div>
+              <div class="font-mono-clean text-[11px] text-[var(--ink-muted)] mt-0.5">Data Accuracy</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Metrics Bento Banner (Row of 4 highlights) -->
-    <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4">
-      {keyMetrics.map((metric) => (
-        <div class="bento-card p-5 border border-white/[0.06] hover:border-emerald-500/30 transition-all">
-          <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
-            {metric.value}
-          </div>
-          <div class="text-sm font-semibold text-slate-200 mt-1">
-            {metric.label}
-          </div>
-          <div class="text-xs text-slate-400 mt-0.5">
-            {metric.subtext}
-          </div>
-        </div>
-      ))}
     </div>
   </div>
 </section>

@@ -1,129 +1,218 @@
 ---
-import { FileDown, Menu, X, Sparkles } from 'lucide-astro';
 import { personalInfo } from '../data/portfolioData';
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#expertise", label: "Expertise" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#awards", label: "Awards" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", label: "home" },
+  { href: "#about", label: "about" },
+  { href: "#expertise", label: "expertise" },
+  { href: "#work", label: "work" },
+  { href: "#experience", label: "experience" },
+  { href: "#skills", label: "skills" },
+  { href: "#contact", label: "contact" },
 ];
 ---
 
-<header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-[#07090E]/80 border-b border-white/[0.06] transition-all">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <!-- Brand / Name Badge -->
-    <a href="#" class="flex items-center gap-3 group">
-      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 p-[1px] shadow-sm shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all">
-        <div class="w-full h-full bg-[#0B0F17] rounded-[11px] flex items-center justify-center font-bold text-emerald-400 text-sm tracking-wider font-mono">
-          MH
-        </div>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-sm font-semibold text-slate-100 group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-          Md. Mehedi Hassan
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        </span>
-        <span class="text-[11px] text-slate-400 font-mono tracking-tight">Ops & Analytics</span>
-      </div>
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[var(--paper)]/90 border-b border-[var(--line)] transition-all">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+    <!-- Brand / Logo: mehedi. -->
+    <a href="#" class="rk-logo hover:opacity-85 transition-opacity">
+      mehedi
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-1 bg-slate-900/40 p-1.5 rounded-full border border-white/[0.05]">
+    <nav class="hidden md:flex items-center gap-6 font-medium text-sm text-[var(--ink-muted)] font-mono-clean">
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-full transition-all"
+          class="hover:text-[var(--ink)] hover:underline decoration-[var(--red)] decoration-2 underline-offset-4 transition-all"
         >
           {link.label}
         </a>
       ))}
     </nav>
 
-    <!-- Action Buttons -->
-    <div class="hidden sm:flex items-center gap-3">
-      <a
-        href={personalInfo.resumeUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 hover:border-emerald-500/40 transition-all shadow-sm"
-      >
-        <FileDown class="w-3.5 h-3.5" />
-        <span>Resume</span>
-      </a>
-      <a
-        href="#contact"
-        class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-slate-900 hover:bg-slate-200 transition-all font-semibold shadow-sm"
-      >
-        <span>Hire Me</span>
-      </a>
-    </div>
+    <!-- Header Right: Music Player + Theme Switch + Mobile Toggle -->
+    <div class="flex items-center gap-4">
+      <!-- Music Player (Rohit's / Mehedi's Rotation style) -->
+      <div id="music-player-desktop" class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--ink)] bg-[var(--surface)] shadow-[var(--shadow-sticker)]">
+        <button
+          type="button"
+          id="music-play-btn"
+          class="flex items-center gap-2 cursor-pointer text-xs font-mono-clean"
+          title="Play / Pause Focus Track"
+          aria-label="Toggle focus music"
+        >
+          <!-- Animated equalizer bars -->
+          <span class="flex items-end gap-[2px] h-3.5 w-3.5">
+            <span class="eq-bar w-[2.5px] bg-[var(--red)] h-1.5 rounded-full"></span>
+            <span class="eq-bar w-[2.5px] bg-[var(--red)] h-3 rounded-full"></span>
+            <span class="eq-bar w-[2.5px] bg-[var(--red)] h-2 rounded-full"></span>
+          </span>
+          <span class="text-[11px] font-semibold text-[var(--ink)]">
+            <span class="text-[9px] uppercase tracking-wider text-[var(--ink-muted)] block">FOCUS AUDIO</span>
+            <span id="track-title" class="truncate max-w-[110px] block">Lo-Fi Ops Beats</span>
+          </span>
+        </button>
+      </div>
 
-    <!-- Mobile Menu Toggle Button -->
-    <button
-      id="mobile-menu-btn"
-      aria-label="Toggle Navigation Menu"
-      class="md:hidden p-2 rounded-lg bg-slate-900/60 border border-slate-800 text-slate-300 hover:text-white"
-    >
-      <Menu id="menu-icon" class="w-5 h-5" />
-      <X id="close-icon" class="w-5 h-5 hidden" />
-    </button>
+      <!-- Theme Switch (After Hours Toggle) -->
+      <button
+        type="button"
+        id="theme-toggle-btn"
+        role="switch"
+        aria-label="Toggle after hours mode"
+        class="w-12 h-7 rounded-full border border-[var(--ink)] bg-[var(--surface)] shadow-[var(--shadow-sticker)] relative flex items-center p-0.5 cursor-pointer transition-colors"
+      >
+        <span
+          id="theme-knob"
+          class="w-5 h-5 rounded-full bg-[var(--ink)] transition-transform duration-300 transform translate-x-0"
+        ></span>
+      </button>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-open-btn"
+        aria-label="Open navigation menu"
+        class="md:hidden p-2 rounded-xl border border-[var(--ink)] bg-[var(--surface)] shadow-[var(--shadow-sticker)] text-[var(--ink)] cursor-pointer"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile Drawer Menu -->
   <div
-    id="mobile-menu"
-    class="md:hidden hidden border-b border-white/[0.08] bg-[#090C13]/95 backdrop-blur-2xl px-5 py-4 space-y-2"
+    id="mobile-drawer"
+    class="md:hidden fixed inset-0 z-50 bg-[var(--paper)] p-6 flex flex-col justify-between hidden"
   >
-    <div class="grid grid-cols-2 gap-2 pt-1 pb-3">
-      {navLinks.map((link) => (
+    <div class="flex items-center justify-between pb-6 border-b border-[var(--line)]">
+      <span class="rk-logo">mehedi</span>
+      <button
+        id="mobile-menu-close-btn"
+        aria-label="Close navigation menu"
+        class="p-2 rounded-xl border border-[var(--ink)] bg-[var(--surface)] shadow-[var(--shadow-sticker)] font-bold text-sm"
+      >
+        ✕
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-4 py-8 font-display text-3xl font-bold">
+      {navLinks.map((link, idx) => (
         <a
           href={link.href}
-          class="mobile-nav-link px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-emerald-400 hover:bg-white/[0.04] transition-colors"
+          class="mobile-link flex items-center justify-between py-2 border-b border-[var(--line)] text-[var(--ink)]"
         >
-          {link.label}
+          <span>{link.label}</span>
+          <span class="font-mono-clean text-xs text-[var(--ink-muted)]">0{idx + 1}</span>
         </a>
       ))}
-    </div>
-    <div class="pt-3 border-t border-white/[0.06] flex flex-col gap-2">
+    </nav>
+
+    <div class="space-y-4">
+      <div class="flex flex-wrap gap-2">
+        <span class="rk-sticker rk-fill-lime" style="transform: rotate(-2deg)">EXCEL</span>
+        <span class="rk-sticker rk-fill-sky" style="transform: rotate(2deg)">APPS SCRIPT</span>
+        <span class="rk-sticker rk-fill-butter" style="transform: rotate(-1.5deg)">ANALYTICS</span>
+      </div>
       <a
         href={personalInfo.resumeUrl}
-        class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+        target="_blank"
+        class="rk-btn rk-btn--ink w-full text-center"
       >
-        <FileDown class="w-4 h-4" />
-        <span>Download Full CV</span>
-      </a>
-      <a
-        href="#contact"
-        class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-semibold bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-colors"
-      >
-        <span>Get in Touch</span>
+        Download CV (PDF) ↗
       </a>
     </div>
   </div>
 </header>
 
+<style>
+  /* Audio visualizer bar animation */
+  .eq-bar {
+    animation: bounce 1.2s ease-in-out infinite alternate;
+  }
+  .eq-bar:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+  .eq-bar:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes bounce {
+    0% { height: 4px; }
+    100% { height: 14px; }
+  }
+
+  .is-paused .eq-bar {
+    animation-play-state: paused;
+    height: 4px !important;
+  }
+</style>
+
 <script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('menu-icon');
-  const closeIcon = document.getElementById('close-icon');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  // Theme Toggle Logic
+  const themeBtn = document.getElementById('theme-toggle-btn');
+  const themeKnob = document.getElementById('theme-knob');
 
-  menuBtn?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-    menuIcon?.classList.toggle('hidden');
-    closeIcon?.classList.toggle('hidden');
+  function updateKnob() {
+    const isDark = document.documentElement.dataset.theme === 'after-hours';
+    if (isDark) {
+      themeKnob?.classList.add('translate-x-5', 'bg-[var(--butter)]');
+      themeKnob?.classList.remove('translate-x-0', 'bg-[var(--ink)]');
+    } else {
+      themeKnob?.classList.remove('translate-x-5', 'bg-[var(--butter)]');
+      themeKnob?.classList.add('translate-x-0', 'bg-[var(--ink)]');
+    }
+  }
+
+  themeBtn?.addEventListener('click', () => {
+    const isDark = document.documentElement.dataset.theme === 'after-hours';
+    if (isDark) {
+      delete document.documentElement.dataset.theme;
+      localStorage.setItem('theme', 'daylight');
+    } else {
+      document.documentElement.dataset.theme = 'after-hours';
+      localStorage.setItem('theme', 'after-hours');
+    }
+    updateKnob();
   });
 
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-      menuIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
-    });
+  updateKnob();
+
+  // Mobile Menu Drawer
+  const openBtn = document.getElementById('mobile-menu-open-btn');
+  const closeBtn = document.getElementById('mobile-menu-close-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  openBtn?.addEventListener('click', () => drawer?.classList.remove('hidden'));
+  closeBtn?.addEventListener('click', () => drawer?.classList.add('hidden'));
+  mobileLinks.forEach(link => link.addEventListener('click', () => drawer?.classList.add('hidden')));
+
+  // Lo-Fi Audio Player Simulation
+  let isPlaying = false;
+  let audio: HTMLAudioElement | null = null;
+  const playBtn = document.getElementById('music-play-btn');
+
+  playBtn?.addEventListener('click', () => {
+    if (!audio) {
+      // Gentle ambient lofi focus sound
+      audio = new Audio('https://omogunoqvblcxxbnzuut.supabase.co/storage/v1/object/public/audio/Song_1.mp3');
+      audio.loop = true;
+    }
+
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      playBtn.classList.add('is-paused');
+    } else {
+      audio.play().catch(() => {});
+      isPlaying = true;
+      playBtn.classList.remove('is-paused');
+    }
   });
+  playBtn?.classList.add('is-paused');
 </script>

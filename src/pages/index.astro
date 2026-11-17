@@ -4,32 +4,26 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Expertise from '../components/Expertise.astro';
-import InteractiveWidget from '../components/InteractiveWidget.astro';
 import Projects from '../components/Projects.astro';
+import InteractiveWidget from '../components/InteractiveWidget.astro';
 import Experience from '../components/Experience.astro';
 import Skills from '../components/Skills.astro';
 import Awards from '../components/Awards.astro';
-import LearningJourney from '../components/LearningJourney.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
-import { personalInfo } from '../data/portfolioData';
 ---
 
-<Layout
-  title={`${personalInfo.name} | ${personalInfo.title}`}
-  description={personalInfo.tagline}
->
+<Layout>
   <Navbar />
-  <main class="flex-1">
+  <main id="main-content" class="w-full max-w-full overflow-x-clip">
     <Hero />
     <About />
     <Expertise />
-    <InteractiveWidget />
     <Projects />
+    <InteractiveWidget />
     <Experience />
     <Skills />
     <Awards />
-    <LearningJourney />
     <Contact />
   </main>
   <Footer />

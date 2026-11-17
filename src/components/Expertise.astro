@@ -1,77 +1,52 @@
 ---
-import { FileSpreadsheet, Table, Cpu, BarChart3, Workflow, Users, CheckCircle2, Sparkles } from 'lucide-astro';
 import { coreExpertise } from '../data/portfolioData';
 
-const iconMap: Record<string, any> = {
-  FileSpreadsheet,
-  Table,
-  Cpu,
-  BarChart3,
-  Workflow,
-  Users,
-};
+const stickerColors = ["rk-fill-lime", "rk-fill-sky", "rk-fill-butter", "rk-fill-pink", "rk-fill-lime", "rk-fill-sky"];
 ---
 
-<section id="expertise" class="py-16 md:py-24 relative border-t border-white/[0.05]">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <!-- Section Heading -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-      <div class="space-y-2">
-        <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-          <Sparkles class="w-3.5 h-3.5" />
-          <span>CORE EXPERTISE</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-          Mastering the Tools of High-Performance Operations
+<section id="expertise" class="py-20 border-t border-[var(--line)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+      <div>
+        <span class="rk-eyebrow">02 · CORE EXPERTISE</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--ink)] mt-2">
+          Specialized Competencies<span class="text-[var(--red)]">.</span>
         </h2>
-        <p class="text-slate-400 max-w-2xl text-base">
-          From advanced spreadsheet architecture to custom automation scripts and executive analytics.
-        </p>
       </div>
-
-      <div class="text-xs font-mono text-slate-400 bg-slate-900/60 px-3.5 py-2 rounded-xl border border-white/[0.05] self-start md:self-auto">
-        6 Core Competency Pillars
-      </div>
+      <span class="font-mono-clean text-xs text-[var(--ink-muted)]">
+        6 Operational & Analytical Pillars
+      </span>
     </div>
 
-    <!-- Expertise Bento Grid (2x3 or 3x2) -->
+    <!-- 3x2 Grid with Hard Shadows -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {coreExpertise.map((item) => {
-        const IconComponent = iconMap[item.icon] || Table;
-        return (
-          <div class="bento-card p-6 border border-white/[0.07] flex flex-col justify-between group hover:border-emerald-500/40 transition-all">
-            <div class="space-y-4">
-              <!-- Header with Icon & Title -->
-              <div class="flex items-center justify-between">
-                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center group-hover:scale-105 group-hover:bg-emerald-500/20 transition-all">
-                  <IconComponent class="w-6 h-6" />
-                </div>
-                <span class="text-[10px] font-mono text-slate-400 bg-slate-900/80 px-2 py-1 rounded border border-white/[0.05]">
-                  Specialization
-                </span>
-              </div>
-
-              <div>
-                <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
-                  {item.title}
-                </h3>
-                <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+      {coreExpertise.map((item, idx) => (
+        <div class="rk-card p-6 flex flex-col justify-between space-y-6">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class={`rk-sticker ${stickerColors[idx % stickerColors.length]} text-[10px]`}>
+                0{idx + 1} · CORE
+              </span>
             </div>
 
-            <!-- Tags -->
-            <div class="mt-6 pt-4 border-t border-white/[0.06] flex flex-wrap gap-1.5">
-              {item.tags.map((tag) => (
-                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900/80 text-slate-400 border border-white/[0.04] group-hover:border-emerald-500/20 group-hover:text-slate-300 transition-colors">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <h3 class="font-display text-xl font-bold text-[var(--ink)]">
+              {item.title}
+            </h3>
+
+            <p class="text-sm text-[var(--ink-soft)] font-sans-clean leading-relaxed">
+              {item.description}
+            </p>
           </div>
-        );
-      })}
+
+          <div class="pt-4 border-t border-[var(--line)] flex flex-wrap gap-1.5 font-mono-clean text-[11px]">
+            {item.tags.map((tag) => (
+              <span class="px-2 py-0.5 rounded-md border border-[var(--line)] bg-[var(--paper)] text-[var(--ink-soft)]">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>

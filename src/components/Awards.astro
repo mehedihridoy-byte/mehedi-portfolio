@@ -1,55 +1,45 @@
 ---
-import { Award, Sparkles, Trophy } from 'lucide-astro';
 import { awardsData } from '../data/portfolioData';
 ---
 
-<section id="awards" class="py-16 md:py-24 relative border-t border-white/[0.05]">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <!-- Section Heading -->
-    <div class="space-y-2 mb-12">
-      <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-        <Trophy class="w-3.5 h-3.5" />
-        <span>RECOGNITION</span>
-      </div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-        Honors & Professional Awards
+<section id="awards" class="py-20 border-t border-[var(--line)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8">
+    <div class="mb-14">
+      <span class="rk-eyebrow">06 · RECOGNITION</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--ink)] mt-2">
+        Honors & achievements<span class="text-[var(--red)]">.</span>
       </h2>
-      <p class="text-slate-400 max-w-2xl text-base">
-        Peer and leadership recognitions earned through demonstrable operational impact and system innovation.
-      </p>
     </div>
 
-    <!-- Awards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {awardsData.map((award) => (
-        <div class="bento-card p-6 sm:p-7 space-y-4 border border-white/[0.08] hover:border-emerald-500/30 transition-all flex flex-col justify-between group">
+      {awardsData.map((award, idx) => (
+        <div class="rk-card p-6 flex flex-col justify-between space-y-4">
           <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <Award class="w-5 h-5" />
-              </div>
-              <span class="text-xs font-mono font-bold text-amber-400/90 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
-                {award.year}
+            <div class="flex items-center justify-between pb-3 border-b border-[var(--line)]">
+              <span class="rk-sticker rk-fill-butter text-xs font-mono-clean">
+                ★ {award.year}
+              </span>
+              <span class="font-mono-clean text-xs text-[var(--ink-muted)]">
+                0{idx + 1}
               </span>
             </div>
 
             <div>
-              <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
+              <h3 class="font-display text-lg font-bold text-[var(--ink)]">
                 {award.title}
               </h3>
-              <p class="text-xs font-mono text-emerald-400 mt-1">
+              <p class="font-mono-clean text-xs text-[var(--red)] mt-0.5">
                 {award.issuer}
               </p>
             </div>
 
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
+            <p class="font-sans-clean text-xs sm:text-sm text-[var(--ink-soft)] leading-relaxed pt-1">
               {award.description}
             </p>
           </div>
 
-          <div class="pt-4 border-t border-white/[0.05] text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-            <span>Verified Achievement</span>
+          <div class="pt-3 border-t border-[var(--line)] font-mono-clean text-[11px] text-[var(--ink-muted)]">
+            Verified Operational Impact
           </div>
         </div>
       ))}

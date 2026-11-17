@@ -1,158 +1,74 @@
 ---
-import { Mail, Linkedin, Github, FileDown, Copy, Check, Send, Sparkles, MapPin, ArrowUpRight } from 'lucide-astro';
 import { personalInfo } from '../data/portfolioData';
 ---
 
-<section id="contact" class="py-16 md:py-24 relative border-t border-white/[0.05]">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="bento-card p-6 sm:p-10 border border-white/[0.08] relative overflow-hidden">
-      <!-- Glow ambient lights -->
-      <div class="absolute -top-32 -right-32 w-80 h-80 bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none"></div>
-      <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-cyan-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+<section id="contact" class="py-20 border-t border-[var(--line)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8">
+    <div class="rk-card p-8 sm:p-14 bg-[var(--surface)] space-y-8 relative overflow-hidden">
+      <!-- Top Sticker & Eyebrow -->
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="rk-sticker rk-fill-lime" style="transform: rotate(-1.5deg);">
+          Open to chats ✓
+        </span>
+        <span class="rk-eyebrow">07 · CONTACT</span>
+      </div>
 
-      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        <!-- Left: Pitch & Details -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="space-y-3">
-            <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-              <Sparkles class="w-3.5 h-3.5" />
-              <span>GET IN TOUCH</span>
-            </div>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Let's Discuss How We Can Optimize Your Operations
-            </h2>
-            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Whether you are hiring for an operational leadership role, seeking a data analytics specialist, or looking to automate complex spreadsheet workflows—I'd love to connect.
-            </p>
-          </div>
+      <!-- Main Headline with Red Squiggle -->
+      <h2 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-[var(--ink)] leading-[1.05] tracking-tight">
+        Let's compare<br />
+        <span class="rk-squiggle">
+          notes
+          <svg viewBox="0 0 600 28" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M4 16 Q 40 2 76 16 T 148 16 T 220 16 T 292 16 T 364 16 T 436 16 T 508 16 T 580 16" fill="none" stroke="var(--red)" stroke-width="7" stroke-linecap="round"></path>
+          </svg>
+        </span><span class="text-[var(--red)]">.</span>
+      </h2>
 
-          <!-- Contact Quick Cards -->
-          <div class="space-y-3 pt-2">
-            <!-- Email Item with Copy Button -->
-            <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-white/[0.06] hover:border-emerald-500/30 transition-all">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
-                  <Mail class="w-4 h-4" />
-                </div>
-                <div>
-                  <span class="text-[10px] font-mono text-slate-500 block">PRIMARY EMAIL</span>
-                  <a href={`mailto:${personalInfo.email}`} class="text-xs sm:text-sm font-mono text-slate-200 hover:text-emerald-400 transition-colors">
-                    {personalInfo.email}
-                  </a>
-                </div>
-              </div>
-              <button
-                id="copy-email-btn"
-                data-email={personalInfo.email}
-                aria-label="Copy Email Address"
-                class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors text-xs flex items-center gap-1.5 font-mono"
-              >
-                <Copy id="copy-icon" class="w-3.5 h-3.5" />
-                <Check id="check-icon" class="w-3.5 h-3.5 text-emerald-400 hidden" />
-                <span id="copy-text">Copy</span>
-              </button>
-            </div>
+      <!-- Content Row: Copy & Live Clock -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
+        <!-- Copy & Action Buttons (8 cols) -->
+        <div class="lg:col-span-8 space-y-6">
+          <p class="font-sans-clean text-lg sm:text-xl text-[var(--ink-soft)] leading-relaxed max-w-xl">
+            On operations, data analytics, and workflow automation. Building a team, hiring for an operational leadership role, or want to consult on spreadsheet bottlenecks? I'd love to talk.
+          </p>
 
-            <!-- Social Links Grid -->
-            <div class="grid grid-cols-2 gap-3">
-              <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-white/[0.06] hover:border-emerald-500/30 transition-all group"
-              >
-                <div class="flex items-center gap-2.5">
-                  <Linkedin class="w-4 h-4 text-cyan-400" />
-                  <span class="text-xs font-mono text-slate-200 group-hover:text-cyan-300">LinkedIn</span>
-                </div>
-                <ArrowUpRight class="w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-white/[0.06] hover:border-emerald-500/30 transition-all group"
-              >
-                <div class="flex items-center gap-2.5">
-                  <Github class="w-4 h-4 text-slate-200" />
-                  <span class="text-xs font-mono text-slate-200 group-hover:text-emerald-300">GitHub</span>
-                </div>
-                <ArrowUpRight class="w-3.5 h-3.5 text-slate-500 group-hover:text-emerald-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            </div>
+          <div class="flex flex-wrap items-center gap-4">
+            <a
+              href={personalInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rk-btn rk-btn--ink"
+            >
+              Connect on LinkedIn ↗
+            </a>
+            <a
+              href={`mailto:${personalInfo.email}`}
+              class="rk-btn rk-btn--out"
+            >
+              Send an email
+            </a>
+            <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rk-btn rk-btn--out font-mono-clean text-xs"
+            >
+              GitHub ↗
+            </a>
           </div>
         </div>
 
-        <!-- Right: Direct Message Form Box -->
-        <div class="lg:col-span-5 bg-slate-900/90 p-6 sm:p-7 rounded-2xl border border-white/[0.08] shadow-2xl space-y-4">
-          <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
-            <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider">
-              Send a Quick Message
-            </h3>
-            <span class="text-[11px] font-mono text-emerald-400">Response within 24h</span>
+        <!-- Live Dhaka Clock Widget (4 cols) (Exact signature widget from rifatbinalam.com) -->
+        <div class="lg:col-span-4 p-6 rounded-2xl bg-[var(--paper)] border border-[var(--ink)] shadow-[var(--shadow-card)] text-center space-y-2">
+          <div class="font-mono-clean text-[11px] font-bold uppercase tracking-widest text-[var(--ink-muted)]">
+            IN DHAKA IT'S
           </div>
-
-          <form
-            action={`mailto:${personalInfo.email}`}
-            method="POST"
-            enctype="text/plain"
-            class="space-y-3 font-mono text-xs"
-          >
-            <div>
-              <label class="block text-slate-400 mb-1">Your Name / Organization</label>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="e.g. John Doe / Tech Corp"
-                class="w-full px-3 py-2 rounded-lg bg-slate-950/80 border border-white/[0.08] text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"
-              />
-            </div>
-
-            <div>
-              <label class="block text-slate-400 mb-1">Your Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="john@example.com"
-                class="w-full px-3 py-2 rounded-lg bg-slate-950/80 border border-white/[0.08] text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"
-              />
-            </div>
-
-            <div>
-              <label class="block text-slate-400 mb-1">Subject / Project Type</label>
-              <select
-                name="subject"
-                class="w-full px-3 py-2 rounded-lg bg-slate-950/80 border border-white/[0.08] text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"
-              >
-                <option value="Full-Time Opportunity">Full-Time / Contract Role</option>
-                <option value="Workflow Automation Project">Workflow Automation Project</option>
-                <option value="Excel / Sheets Consulting">Excel / Google Sheets Consulting</option>
-                <option value="General Inquiry">General Networking</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-slate-400 mb-1">Message</label>
-              <textarea
-                name="message"
-                rows="3"
-                required
-                placeholder="Briefly describe what you have in mind..."
-                class="w-full px-3 py-2 rounded-lg bg-slate-950/80 border border-white/[0.08] text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors resize-none"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              class="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-colors flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20"
-            >
-              <Send class="w-3.5 h-3.5" />
-              <span>Send Message</span>
-            </button>
-          </form>
+          <div id="dhaka-clock" class="font-display font-extrabold text-4xl sm:text-5xl text-[var(--ink)] tracking-tight">
+            --:--
+          </div>
+          <div class="font-mono-clean text-[11px] font-semibold text-[var(--red)] tracking-wider">
+            GMT+6 · USUALLY ONLINE
+          </div>
         </div>
       </div>
     </div>
@@ -160,23 +76,28 @@ import { personalInfo } from '../data/portfolioData';
 </section>
 
 <script>
-  const copyBtn = document.getElementById('copy-email-btn');
-  const copyIcon = document.getElementById('copy-icon');
-  const checkIcon = document.getElementById('check-icon');
-  const copyText = document.getElementById('copy-text');
+  function updateDhakaClock() {
+    const clockEl = document.getElementById('dhaka-clock');
+    if (!clockEl) return;
 
-  copyBtn?.addEventListener('click', async () => {
-    const email = copyBtn.getAttribute('data-email') || '';
-    if (email) {
-      await navigator.clipboard.writeText(email);
-      copyIcon?.classList.add('hidden');
-      checkIcon?.classList.remove('hidden');
-      if (copyText) copyText.textContent = 'Copied!';
-      setTimeout(() => {
-        copyIcon?.classList.remove('hidden');
-        checkIcon?.classList.add('hidden');
-        if (copyText) copyText.textContent = 'Copy';
-      }, 2000);
+    try {
+      const now = new Date();
+      // Format time in Dhaka (Asia/Dhaka GMT+6)
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: 'Asia/Dhaka',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+      };
+      const formatter = new Intl.DateTimeFormat('en-US', options);
+      clockEl.textContent = formatter.format(now);
+    } catch {
+      const local = new Date();
+      clockEl.textContent = local.toLocaleTimeString();
     }
-  });
+  }
+
+  updateDhakaClock();
+  setInterval(updateDhakaClock, 1000);
 </script>

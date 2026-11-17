@@ -1,5 +1,6 @@
 {
   "buildCommand": "astro build",
   "outputDirectory": "dist",
-  "framework": "astro"
+  "framework": "astro",
+  "installCommand": "npm install --legacy-peer-deps"
 }

@@ -208,7 +208,7 @@
                 </div>
                 <div>
                   <span class="font-mono-clean text-[10px] text-[var(--ink-muted)] block">SPEED BOOST</span>
-                  <div class="font-display text-2xl font-bold text-[var(--ink)]">
+                  <div id="calc-speed-result" class="font-display text-2xl font-bold text-[var(--ink)]">
                     85% Faster
                   </div>
                 </div>
@@ -270,6 +270,7 @@
 
     const hoursRes = document.getElementById('calc-hours-result');
     const dollarsRes = document.getElementById('calc-dollars-result');
+    const speedRes = document.getElementById('calc-speed-result');
     const contextEl = document.getElementById('calc-context');
     const paybackEl = document.getElementById('calc-payback');
     const roiEl = document.getElementById('calc-roi');
@@ -323,10 +324,18 @@
 
       // Calculations
       const weeklyManualHours = team * hours;
-      const automationRate = 0.82; // 82% of manual work automated
-      const monthlySaved = Math.round(weeklyManualHours * 4.2 * automationRate);
+      // Dynamic automation efficiency: larger volumes eliminate more handoffs and reconciliation latency
+      const dynamicRate = Math.min(0.92, Math.max(0.75, 0.75 + (weeklyManualHours / 300) * 0.17));
+      const speedPct = Math.round(dynamicRate * 100);
+
+      const monthlySaved = Math.round(weeklyManualHours * 4.2 * dynamicRate);
       const annualSaved = Math.round(monthlySaved * 12 * rate);
-      const weeklyAfter = Math.round(weeklyManualHours * (1 - automationRate));
+      const weeklyAfter = Math.max(1, Math.round(weeklyManualHours * (1 - dynamicRate)));
+
+      // Dynamic Speed Boost update
+      if (speedRes) {
+        speedRes.textContent = `${speedPct}% Faster`;
+      }
 
       // Animated count-up for hours
       if (hoursRes) {

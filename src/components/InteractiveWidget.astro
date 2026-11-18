@@ -4,13 +4,32 @@
 <section class="py-16 border-t border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-4 sm:px-8">
     <div class="rk-card p-6 sm:p-10 bg-[var(--surface)]">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+      <!-- Preset Scenario Buttons -->
+      <div class="flex flex-wrap items-center gap-2 mb-6">
+        <span class="rk-sticker rk-fill-butter" style="transform: rotate(-1deg);">
+          INTERACTIVE TOOL · ROI CALCULATOR
+        </span>
+        <div class="flex flex-wrap gap-2 ml-auto">
+          <button data-preset="solo" class="roi-preset px-3 py-1.5 rounded-full border border-[var(--line)] bg-[var(--paper)] text-[10px] font-mono-clean font-bold text-[var(--ink-muted)] hover:border-[var(--ink)] hover:text-[var(--ink)] transition-all cursor-pointer">
+            🎯 Solo Freelancer
+          </button>
+          <button data-preset="small" class="roi-preset px-3 py-1.5 rounded-full border border-[var(--line)] bg-[var(--paper)] text-[10px] font-mono-clean font-bold text-[var(--ink-muted)] hover:border-[var(--ink)] hover:text-[var(--ink)] transition-all cursor-pointer">
+            🏢 Small Business
+          </button>
+          <button data-preset="mid" class="roi-preset px-3 py-1.5 rounded-full border border-[var(--line)] bg-[var(--paper)] text-[10px] font-mono-clean font-bold text-[var(--ink-muted)] hover:border-[var(--ink)] hover:text-[var(--ink)] transition-all cursor-pointer">
+            🏭 Mid-Size Team
+          </button>
+          <button data-preset="enterprise" class="roi-preset px-3 py-1.5 rounded-full border border-[var(--line)] bg-[var(--paper)] text-[10px] font-mono-clean font-bold text-[var(--ink-muted)] hover:border-[var(--ink)] hover:text-[var(--ink)] transition-all cursor-pointer">
+            🏗️ Enterprise
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <!-- Left: Controls -->
         <div class="lg:col-span-7 space-y-6">
           <div class="space-y-2">
-            <span class="rk-sticker rk-fill-butter" style="transform: rotate(-1deg);">
-              INTERACTIVE TOOL · ROI CALCULATOR
-            </span>
             <h3 class="font-display text-2xl sm:text-4xl font-extrabold text-[var(--ink)]">
               Calculate Your Team's Time & Cost Savings<span class="text-[var(--red)]">.</span>
             </h3>
@@ -20,7 +39,7 @@
           </div>
 
           <!-- Sliders -->
-          <div class="space-y-4 pt-2 font-mono-clean text-xs">
+          <div class="space-y-5 pt-2 font-mono-clean text-xs">
             <div class="space-y-1.5">
               <div class="flex justify-between text-[var(--ink)]">
                 <span>Team Members:</span>
@@ -59,7 +78,7 @@
               <input
                 id="calc-rate-input"
                 type="range"
-                min="10"
+                min="5"
                 max="100"
                 step="5"
                 value="25"
@@ -67,47 +86,148 @@
               />
             </div>
           </div>
+
+          <!-- Before vs After Visual Bar -->
+          <div class="pt-3 space-y-3">
+            <div class="font-mono-clean text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+              Before vs After Automation
+            </div>
+            <div class="space-y-2">
+              <!-- Before Bar -->
+              <div class="flex items-center gap-3">
+                <span class="font-mono-clean text-[10px] text-[var(--ink-muted)] w-14 shrink-0 text-right">BEFORE</span>
+                <div class="flex-1 h-7 rounded-lg bg-[var(--paper)] border border-[var(--line)] overflow-hidden relative">
+                  <div id="bar-before" class="h-full bg-[var(--red)]/20 border-r-2 border-[var(--red)] transition-all duration-500 flex items-center justify-end pr-2" style="width: 100%;">
+                    <span id="bar-before-label" class="font-mono-clean text-[10px] font-bold text-[var(--red)]">40 hrs/wk</span>
+                  </div>
+                </div>
+              </div>
+              <!-- After Bar -->
+              <div class="flex items-center gap-3">
+                <span class="font-mono-clean text-[10px] text-[var(--lime)] w-14 shrink-0 text-right font-bold">AFTER</span>
+                <div class="flex-1 h-7 rounded-lg bg-[var(--paper)] border border-[var(--line)] overflow-hidden relative">
+                  <div id="bar-after" class="h-full bg-[var(--lime)]/30 border-r-2 border-green-600 transition-all duration-500 flex items-center justify-end pr-2" style="width: 18%;">
+                    <span id="bar-after-label" class="font-mono-clean text-[10px] font-bold text-green-700 dark:text-green-400">7 hrs/wk</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- What Gets Automated -->
+          <div class="pt-2">
+            <div class="font-mono-clean text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">
+              What Gets Automated
+            </div>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-1.5 font-sans-clean text-xs text-[var(--ink-soft)]">
+              <div class="flex items-center gap-2">
+                <span class="w-4 h-4 rounded bg-[var(--lime)] border border-[var(--ink)] flex items-center justify-center text-[9px] font-bold shrink-0">✓</span>
+                Data entry & copy-pasting
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-4 h-4 rounded bg-[var(--lime)] border border-[var(--ink)] flex items-center justify-center text-[9px] font-bold shrink-0">✓</span>
+                Report generation & PDF export
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-4 h-4 rounded bg-[var(--lime)] border border-[var(--ink)] flex items-center justify-center text-[9px] font-bold shrink-0">✓</span>
+                Email & Slack notifications
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-4 h-4 rounded bg-[var(--lime)] border border-[var(--ink)] flex items-center justify-center text-[9px] font-bold shrink-0">✓</span>
+                Reconciliation & QA checks
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-4 h-4 rounded bg-[var(--lime)] border border-[var(--ink)] flex items-center justify-center text-[9px] font-bold shrink-0">✓</span>
+                Formula auditing & validation
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-4 h-4 rounded bg-[var(--lime)] border border-[var(--ink)] flex items-center justify-center text-[9px] font-bold shrink-0">✓</span>
+                KPI dashboard updates
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Right: Live Results Box -->
-        <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--ink)] shadow-[var(--shadow-card)] space-y-6">
-          <div class="flex items-center justify-between pb-3 border-b border-[var(--line)]">
-            <span class="font-mono-clean text-xs uppercase tracking-wider text-[var(--ink-muted)]">
-              Estimated Value Unlocked
-            </span>
-            <span class="rk-sticker rk-fill-lime text-[10px]" style="transform: rotate(2deg);">
-              LIVE
-            </span>
-          </div>
-
-          <div class="space-y-4">
-            <div>
-              <span class="font-mono-clean text-[11px] text-[var(--ink-muted)] block">MONTHLY TIME RECLAIMED</span>
-              <div id="calc-hours-result" class="font-display text-4xl sm:text-5xl font-extrabold text-[var(--ink)]">
-                135 hrs
-              </div>
-              <span class="text-xs text-[var(--ink-muted)] font-sans-clean mt-0.5 block">Automated pipeline execution</span>
+        <div class="lg:col-span-5 space-y-5">
+          <div class="p-6 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--ink)] shadow-[var(--shadow-card)] space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-[var(--line)]">
+              <span class="font-mono-clean text-xs uppercase tracking-wider text-[var(--ink-muted)]">
+                Estimated Value Unlocked
+              </span>
+              <span class="rk-sticker rk-fill-lime text-[10px]" style="transform: rotate(2deg);">
+                LIVE
+              </span>
             </div>
 
-            <div class="grid grid-cols-2 gap-3 pt-3 border-t border-[var(--line)]">
+            <div class="space-y-4">
+              <!-- Monthly Time Reclaimed -->
               <div>
-                <span class="font-mono-clean text-[10px] text-[var(--ink-muted)] block">EST. ANNUAL VALUE</span>
-                <div id="calc-dollars-result" class="font-display text-2xl font-bold text-[var(--red)]">
-                  $40,500
+                <span class="font-mono-clean text-[11px] text-[var(--ink-muted)] block">MONTHLY TIME RECLAIMED</span>
+                <div id="calc-hours-result" class="font-display text-4xl sm:text-5xl font-extrabold text-[var(--ink)]">
+                  138 hrs
+                </div>
+                <span class="text-xs text-[var(--ink-muted)] font-sans-clean mt-0.5 block">Automated pipeline execution</span>
+                <!-- Comparable-To Context -->
+                <div id="calc-context" class="mt-1.5 px-3 py-1.5 rounded-lg bg-[var(--sky)]/15 border border-[var(--sky)]/30 font-mono-clean text-[11px] text-[var(--ink-soft)] inline-block">
+                  ≈ 17 full workdays reclaimed every month
                 </div>
               </div>
-              <div>
-                <span class="font-mono-clean text-[10px] text-[var(--ink-muted)] block">SPEED BOOST</span>
-                <div class="font-display text-2xl font-bold text-[var(--ink)]">
-                  85% Faster
+
+              <!-- Stats Row -->
+              <div class="grid grid-cols-2 gap-3 pt-3 border-t border-[var(--line)]">
+                <div>
+                  <span class="font-mono-clean text-[10px] text-[var(--ink-muted)] block">EST. ANNUAL VALUE</span>
+                  <div id="calc-dollars-result" class="font-display text-2xl font-bold text-[var(--red)]">
+                    $16,560
+                  </div>
                 </div>
+                <div>
+                  <span class="font-mono-clean text-[10px] text-[var(--ink-muted)] block">SPEED BOOST</span>
+                  <div class="font-display text-2xl font-bold text-[var(--ink)]">
+                    85% Faster
+                  </div>
+                </div>
+              </div>
+
+              <!-- Payback Period -->
+              <div class="pt-3 border-t border-[var(--line)]">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="font-mono-clean text-[10px] text-[var(--ink-muted)] block">PROJECT PAYBACK</span>
+                    <div id="calc-payback" class="font-display text-xl font-bold text-green-600 dark:text-green-400">
+                      ~2 weeks
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="font-mono-clean text-[10px] text-[var(--ink-muted)] block">12-MONTH ROI</span>
+                    <div id="calc-roi" class="font-display text-xl font-bold text-[var(--ink)]">
+                      1,656%
+                    </div>
+                  </div>
+                </div>
+                <span class="text-[10px] text-[var(--ink-muted)] font-sans-clean mt-1 block">
+                  Based on avg. project cost of $500–$1,500
+                </span>
               </div>
             </div>
+
+            <!-- WhatsApp CTA with pre-filled message -->
+            <a
+              id="roi-cta-btn"
+              href="https://wa.me/8801970300717?text=Hi%20Mehedi%2C%20my%20team%20of%205%20spends%208%20hrs%2Fweek%20on%20manual%20spreadsheet%20work.%20Can%20you%20help%20automate%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rk-btn rk-btn--ink w-full text-center block"
+            >
+              Let's Automate Your Ops — WhatsApp ↗
+            </a>
           </div>
 
-          <a href="#contact" class="rk-btn rk-btn--ink w-full text-center">
-            Let's Automate Your Ops ↗
-          </a>
+          <!-- Verified Impact Pill -->
+          <div class="text-center">
+            <span class="font-mono-clean text-[11px] text-[var(--ink-muted)]">Verified Operational Impact · 5+ Years</span>
+          </div>
         </div>
       </div>
     </div>
@@ -126,6 +246,46 @@
 
     const hoursRes = document.getElementById('calc-hours-result');
     const dollarsRes = document.getElementById('calc-dollars-result');
+    const contextEl = document.getElementById('calc-context');
+    const paybackEl = document.getElementById('calc-payback');
+    const roiEl = document.getElementById('calc-roi');
+    const ctaBtn = document.getElementById('roi-cta-btn') as HTMLAnchorElement | null;
+
+    // Before/After bar elements
+    const barBefore = document.getElementById('bar-before');
+    const barAfter = document.getElementById('bar-after');
+    const barBeforeLabel = document.getElementById('bar-before-label');
+    const barAfterLabel = document.getElementById('bar-after-label');
+
+    // Preset configurations
+    const presets: Record<string, { team: number; hours: number; rate: number }> = {
+      solo: { team: 1, hours: 20, rate: 35 },
+      small: { team: 3, hours: 6, rate: 15 },
+      mid: { team: 10, hours: 12, rate: 25 },
+      enterprise: { team: 30, hours: 15, rate: 50 },
+    };
+
+    // Animated count-up helper
+    function animateValue(el: HTMLElement, start: number, end: number, duration: number, prefix: string = '', suffix: string = '') {
+      const range = end - start;
+      const startTime = performance.now();
+
+      function step(currentTime: number) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(start + range * eased);
+        el.textContent = `${prefix}${current.toLocaleString()}${suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    let prevMonthly = 0;
+    let prevAnnual = 0;
 
     function update() {
       if (!teamInput || !hoursInput || !rateInput) return;
@@ -133,20 +293,117 @@
       const hours = parseInt(hoursInput.value, 10);
       const rate = parseInt(rateInput.value, 10);
 
-      if (teamVal) teamVal.textContent = `${team} members`;
+      if (teamVal) teamVal.textContent = `${team} member${team > 1 ? 's' : ''}`;
       if (hoursVal) hoursVal.textContent = `${hours} hours`;
       if (rateVal) rateVal.textContent = `$${rate} / hr`;
 
-      const monthlySaved = Math.round(team * hours * 4.2 * 0.82);
+      // Calculations
+      const weeklyManualHours = team * hours;
+      const automationRate = 0.82; // 82% of manual work automated
+      const monthlySaved = Math.round(weeklyManualHours * 4.2 * automationRate);
       const annualSaved = Math.round(monthlySaved * 12 * rate);
+      const weeklyAfter = Math.round(weeklyManualHours * (1 - automationRate));
 
-      if (hoursRes) hoursRes.textContent = `${monthlySaved.toLocaleString()} hrs`;
-      if (dollarsRes) dollarsRes.textContent = `$${annualSaved.toLocaleString()}`;
+      // Animated count-up for hours
+      if (hoursRes) {
+        animateValue(hoursRes, prevMonthly, monthlySaved, 400, '', ' hrs');
+      }
+      // Animated count-up for dollars
+      if (dollarsRes) {
+        animateValue(dollarsRes, prevAnnual, annualSaved, 400, '$', '');
+      }
+
+      prevMonthly = monthlySaved;
+      prevAnnual = annualSaved;
+
+      // Comparable-to context
+      if (contextEl) {
+        const workdays = Math.round(monthlySaved / 8);
+        if (monthlySaved >= 160) {
+          const ftes = (monthlySaved / 160).toFixed(1);
+          contextEl.textContent = `≈ ${ftes} full-time employee${parseFloat(ftes) > 1 ? 's' : ''} worth of work reclaimed`;
+        } else {
+          contextEl.textContent = `≈ ${workdays} full workday${workdays !== 1 ? 's' : ''} reclaimed every month`;
+        }
+      }
+
+      // Payback period (avg project cost $1000)
+      const avgProjectCost = 1000;
+      const monthlyDollarSaved = monthlySaved * rate;
+      if (paybackEl) {
+        if (monthlyDollarSaved > 0) {
+          const paybackWeeks = Math.max(1, Math.round((avgProjectCost / monthlyDollarSaved) * 4.2));
+          if (paybackWeeks <= 1) {
+            paybackEl.textContent = '< 1 week';
+          } else if (paybackWeeks <= 8) {
+            paybackEl.textContent = `~${paybackWeeks} weeks`;
+          } else {
+            const paybackMonths = Math.round(paybackWeeks / 4.2);
+            paybackEl.textContent = `~${paybackMonths} month${paybackMonths > 1 ? 's' : ''}`;
+          }
+        } else {
+          paybackEl.textContent = '—';
+        }
+      }
+
+      // 12-month ROI
+      if (roiEl) {
+        if (avgProjectCost > 0) {
+          const roi = Math.round(((annualSaved - avgProjectCost) / avgProjectCost) * 100);
+          roiEl.textContent = `${roi.toLocaleString()}%`;
+        }
+      }
+
+      // Before / After bars
+      if (barBefore && barAfter && barBeforeLabel && barAfterLabel) {
+        const maxHours = 50 * 25; // max possible weekly
+        const beforePct = Math.min(100, Math.max(5, (weeklyManualHours / (team * 25)) * 100));
+        const afterPct = Math.min(beforePct, Math.max(3, (weeklyAfter / (team * 25)) * 100));
+
+        barBefore.style.width = `${beforePct}%`;
+        barAfter.style.width = `${afterPct}%`;
+        barBeforeLabel.textContent = `${weeklyManualHours} hrs/wk`;
+        barAfterLabel.textContent = `${weeklyAfter} hrs/wk`;
+      }
+
+      // Update WhatsApp CTA with dynamic pre-filled message
+      if (ctaBtn) {
+        const msg = encodeURIComponent(
+          `Hi Mehedi, my team of ${team} spends ${hours} hrs/week on manual spreadsheet work (at $${rate}/hr). Your calculator shows we could save ${monthlySaved} hrs/month ($${annualSaved.toLocaleString()}/yr). Can you help automate?`
+        );
+        ctaBtn.href = `https://wa.me/8801970300717?text=${msg}`;
+      }
     }
+
+    // Preset button handlers
+    document.querySelectorAll('.roi-preset').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = (btn as HTMLElement).dataset.preset;
+        if (!key || !presets[key]) return;
+        const p = presets[key];
+
+        if (teamInput) teamInput.value = String(p.team);
+        if (hoursInput) hoursInput.value = String(p.hours);
+        if (rateInput) rateInput.value = String(p.rate);
+
+        // Highlight active preset
+        document.querySelectorAll('.roi-preset').forEach((b) => {
+          b.classList.remove('border-[var(--ink)]', 'text-[var(--ink)]', 'bg-[var(--surface)]');
+          b.classList.add('border-[var(--line)]', 'text-[var(--ink-muted)]', 'bg-[var(--paper)]');
+        });
+        btn.classList.remove('border-[var(--line)]', 'text-[var(--ink-muted)]', 'bg-[var(--paper)]');
+        btn.classList.add('border-[var(--ink)]', 'text-[var(--ink)]', 'bg-[var(--surface)]');
+
+        update();
+      });
+    });
 
     teamInput?.addEventListener('input', update);
     hoursInput?.addEventListener('input', update);
     rateInput?.addEventListener('input', update);
+
+    // Initial run
+    update();
   }
   runRoiCalc();
 </script>

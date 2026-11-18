@@ -59,7 +59,7 @@ export const personalInfo = {
   title: "Operations Lead · Advanced Excel & Google Sheets Specialist",
   currentRole: "Operations Lead at Shikho Technologies Bangladesh",
   tagline: "Engineering enterprise-grade Google Sheets, advanced Excel models, and automated Apps Script workflows for high-growth businesses and operational teams.",
-  shortBio: "Currently Operations Lead at Shikho Technologies Bangladesh with 5+ years scaling operations across 12,000+ workflows and content operations and leading a 6-member team. I partner with business owners and operations leaders to replace tedious manual spreadsheets with automated, error-free Google Sheets and dynamic Excel systems.",
+  shortBio: "Currently Operations Lead at Shikho Technologies Bangladesh with 5+ years of hands-on experience in Excel, Google Sheets, process automation, and data analysis. Managing a 30-person team across 7 studios, scaling 12,000+ workflows and auditing 4,200+ complex datasets. I build scalable, data-driven spreadsheet solutions tailored to how your business actually operates.",
   location: "Dhaka, Bangladesh",
   statusBadge: "Available for Excel & Google Sheets Client Projects",
   phone: "+880 1970 300 717",
@@ -112,7 +112,7 @@ export const coreExpertise = [
   {
     title: "Team Leadership & Data Governance",
     icon: "Users",
-    description: "Leading 6-member operational teams with direct reporting, enforcing strict data hygiene, preventing formula overwrites, and establishing standardized checklists.",
+    description: "Leading 30-person operational teams with direct reporting, enforcing strict data hygiene, preventing formula overwrites, and establishing standardized checklists.",
     tags: ["Team Leadership", "Task Allocation", "Data Integrity", "Quality Assurance", "SOP Documentation"],
   },
 ];
@@ -244,15 +244,15 @@ export const experienceData: ExperienceItem[] = [
     company: "Shikho Technologies Bangladesh",
     location: "Dhaka, Bangladesh",
     type: "Full-time",
-    description: "Leading a 6-member Operations team, managing daily workload, performance, and high-volume operations & content workflows. Architecting automated Google Sheets and Google Apps Script dashboards to optimize operational workflows.",
+    description: "Leading a 30-person operational team across 7 studios, managing daily workload, performance, and high-volume operations & content workflows. Architecting automated Google Sheets and Google Apps Script dashboards to optimize operational workflows.",
     achievements: [
-      "Led a 6-member Operations team, with all members reporting directly, managing daily workload, performance, and operational execution.",
+      "Led a 30-person Operations team managing daily workload, performance, and operational execution across 7 studios.",
       "Managed 12,000+ operational workflows and personally monitored 4,200+ sessions, ensuring on-time execution, quality control, issue resolution, and operational standards.",
       "Managed 30+ daily operational schedules across 7 studios, coordinating instructors, schedules, resources, and technical operations while optimizing resource utilization and reducing operational costs.",
       "Built automated dashboards using Google Sheets & Google Apps Script, reducing manual work and improving operational tracking, reporting, and data-driven decision-making.",
       "KPI tracking and operational reporting for 1,000+ activities, improving performance visibility and enabling timely follow-up on operational gaps.",
     ],
-    skills: ["Google Sheets & Apps Script", "Team Leadership (6 Members)", "12,000+ Workflows Scaled", "Resource Planning", "KPI Dashboards"],
+    skills: ["Google Sheets & Apps Script", "Team Leadership (30 Members)", "12,000+ Workflows Scaled", "Resource Planning", "KPI Dashboards"],
   },
   {
     period: "2022 – 2024",
@@ -367,7 +367,7 @@ export const skillsCategories: SkillCategory[] = [
     icon: "Briefcase",
     skills: [
       { name: "Operations Management (5+ Years)", level: "Expert", highlight: true },
-      { name: "Team Leadership (6-Member Direct Reports)", level: "Expert", highlight: true },
+      { name: "Team Leadership (30-Person Direct Reports)", level: "Expert", highlight: true },
       { name: "High-Volume Operations (12,000+ Workflows)", level: "Expert", highlight: true },
       { name: "Standard Operating Procedures (SOPs)", level: "Expert", highlight: true },
       { name: "Resource & Studio Allocation", level: "Expert" },

@@ -1,26 +1,26 @@
 ---
-import { personalInfo } from '../data/portfolioData';
+import { personalInfo, educationData, certificationsList } from '../data/portfolioData';
 
 const pillars = [
   {
     color: "rk-fill-lime",
     title: "Relentless Automation",
-    desc: "If an operational task repeats more than twice a day, it belongs in an automated pipeline.",
+    desc: "If an operational task repeats more than twice a day, it belongs in an automated Apps Script or formula pipeline.",
   },
   {
     color: "rk-fill-sky",
     title: "100% Data Rigor",
-    desc: "Formula-level validation, multi-user concurrency locks, and zero tolerance for human calculation slips.",
+    desc: "Formula-level validation, multi-user row locking, and zero tolerance for human calculation slips.",
   },
   {
     color: "rk-fill-butter",
     title: "Actionable Intelligence",
-    desc: "Transforming opaque data columns into executive dashboards that spark immediate, clear decisions.",
+    desc: "Transforming opaque rows and columns into visual KPI dashboards that spark immediate decisions.",
   },
   {
     color: "rk-fill-pink",
-    title: "SLA Discipline",
-    desc: "Establishing bulletproof standard operating procedures (SOPs) that ensure predictable on-time delivery.",
+    title: "SLA & Team Leadership",
+    desc: "Proven track record leading 6-member operational teams with standardized SOPs and 99.8% on-time execution.",
   },
 ];
 ---
@@ -30,7 +30,7 @@ const pillars = [
     <div class="mb-12">
       <span class="rk-eyebrow">01 · ABOUT ME</span>
       <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--ink)] mt-2">
-        Bridging the gap between messy logistics and automated clarity<span class="text-[var(--red)]">.</span>
+        Scaling high-volume operations with automated precision<span class="text-[var(--red)]">.</span>
       </h2>
     </div>
 
@@ -38,20 +38,35 @@ const pillars = [
       <!-- Left: Story Narrative (7 cols) -->
       <div class="lg:col-span-7 space-y-6 text-[var(--ink-soft)] text-base sm:text-lg leading-relaxed font-sans-clean">
         <p>
-          I am an <strong class="text-[var(--ink)] font-bold">Operations & Data Analytics Professional</strong> who believes that operational efficiency isn’t about working longer hours—it’s about eliminating manual friction with intelligent tooling.
+          I am an <strong class="text-[var(--ink)] font-bold">Operations & Advanced Spreadsheet Specialist</strong> with over 5 years of hands-on experience in operations management, process automation, and data analysis.
         </p>
         <p>
-          In fast-paced organizations, teams often find themselves buried under disconnected spreadsheets, conflicting records, and hours of copy-pasting. That’s where I step in. By mastering advanced Microsoft Excel architecture, building Google Apps Script triggers, and designing visual dashboards, I transform slow, error-prone workflows into high-speed, automated machines.
+          Currently, as <strong class="text-[var(--ink)] font-semibold">Senior Executive, Operations at Shikho Technologies Bangladesh</strong>, I lead a direct 6-member operational team managing high-stakes live classes across 7 studios—having scaled over <strong class="text-[var(--ink)] font-semibold">12,000+ classes</strong> and personally QA-monitored 4,200+ sessions. To keep this velocity sustainable, I built automated Google Sheets and Google Apps Script management systems that track schedules, prevent scheduling collisions, and eliminate hours of manual reporting.
         </p>
         <p class="text-sm sm:text-base text-[var(--ink-muted)]">
-          My experience spans cross-departmental coordination, SLA management, and end-to-end data pipelines that give leadership total transparency while empowering operational agents to do their best work without stress.
+          <strong class="text-[var(--ink)] font-semibold">Why I work with external clients:</strong> Growing businesses often lose dozens of hours every week because their spreadsheets are fragmented, formulas break, or data entry is entirely manual. I partner with business owners and managers to architect bulletproof Google Sheets, dynamic Excel models, and automated Apps Script pipelines tailored to their exact workflow.
         </p>
 
+        <!-- Education & Certifications snippet -->
+        <div class="p-5 rounded-2xl bg-[var(--surface)] border border-[var(--line)] space-y-3 font-mono-clean text-xs">
+          <div class="flex items-center justify-between pb-2 border-b border-[var(--line)]">
+            <span class="text-[var(--ink-muted)] uppercase tracking-wider font-bold">EDUCATION & TRAINING</span>
+            <span class="text-[var(--ink)] font-semibold">National University (2024)</span>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            {certificationsList.map((cert) => (
+              <span class="px-2 py-0.5 rounded bg-[var(--paper)] border border-[var(--line)] text-[var(--ink)]">
+                {cert}
+              </span>
+            ))}
+          </div>
+        </div>
+
         <!-- Quick location and status pills -->
-        <div class="pt-4 flex flex-wrap gap-2">
-          <span class="rk-sticker rk-fill-sky" style="transform: rotate(-1deg);">Dhaka, Bangladesh</span>
-          <span class="rk-sticker rk-fill-butter" style="transform: rotate(1.5deg);">Open to Global / Remote</span>
-          <span class="rk-sticker rk-fill-lime" style="transform: rotate(-2deg);">Full-Time & High-Impact Contracts</span>
+        <div class="pt-2 flex flex-wrap gap-2">
+          <span class="rk-sticker rk-fill-sky" style="transform: rotate(-1deg);">{personalInfo.location}</span>
+          <span class="rk-sticker rk-fill-butter" style="transform: rotate(1.5deg);">Open for Client Work</span>
+          <span class="rk-sticker rk-fill-lime" style="transform: rotate(-2deg);">{personalInfo.phone}</span>
         </div>
       </div>
 

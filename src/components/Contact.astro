@@ -8,7 +8,7 @@ import { personalInfo } from '../data/portfolioData';
       <!-- Top Sticker & Eyebrow -->
       <div class="flex flex-wrap items-center gap-3">
         <span class="rk-sticker rk-fill-lime" style="transform: rotate(-1.5deg);">
-          Open to chats ✓
+          Open for spreadsheet & ops projects ✓
         </span>
         <span class="rk-eyebrow">07 · CONTACT</span>
       </div>
@@ -29,31 +29,31 @@ import { personalInfo } from '../data/portfolioData';
         <!-- Copy & Action Buttons (8 cols) -->
         <div class="lg:col-span-8 space-y-6">
           <p class="font-sans-clean text-lg sm:text-xl text-[var(--ink-soft)] leading-relaxed max-w-xl">
-            On operations, data analytics, and workflow automation. Building a team, hiring for an operational leadership role, or want to consult on spreadsheet bottlenecks? I'd love to talk.
+            Have a messy Google Sheet, need a custom Apps Script automation, or looking to build an executive KPI dashboard? Whether you need consulting or a full-time operational lead, let's connect.
           </p>
 
-          <div class="flex flex-wrap items-center gap-4">
+          <div class="flex flex-wrap items-center gap-3">
+            <a
+              href="https://wa.me/8801970300717"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rk-btn rk-btn--ink font-mono-clean text-xs"
+            >
+              WhatsApp (+880 1970 300 717) ↗
+            </a>
+            <a
+              href={`mailto:${personalInfo.email}`}
+              class="rk-btn rk-btn--out font-mono-clean text-xs"
+            >
+              {personalInfo.email}
+            </a>
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              class="rk-btn rk-btn--ink"
-            >
-              Connect on LinkedIn ↗
-            </a>
-            <a
-              href={`mailto:${personalInfo.email}`}
-              class="rk-btn rk-btn--out"
-            >
-              Send an email
-            </a>
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
               class="rk-btn rk-btn--out font-mono-clean text-xs"
             >
-              GitHub ↗
+              LinkedIn ↗
             </a>
           </div>
         </div>

@@ -7,17 +7,17 @@ const cardStickerColors = ["rk-fill-lime", "rk-fill-sky", "rk-fill-butter", "rk-
 <section id="work" class="py-20 border-t border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-4 sm:px-8">
     <div class="mb-14">
-      <span class="rk-eyebrow">03 · CASE STUDIES & IMPACT</span>
+      <span class="rk-eyebrow">03 · SPREADSHEET ARCHITECTURE & CASE STUDIES</span>
       <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--ink)] mt-2">
-        Flagship work built under real constraints<span class="text-[var(--red)]">.</span>
+        Real-world sheets & systems built for clients & scale<span class="text-[var(--red)]">.</span>
       </h2>
       <p class="text-[var(--ink-muted)] text-base sm:text-lg mt-2 max-w-2xl font-sans-clean">
-        Deep dives into how spreadsheet engineering, automation scripts, and workflow optimization delivered measurable business value.
+        Explore live Google Sheets, Excel models, and automated Apps Script engines. You can view sample sheets, inspect data structures, or download template files below.
       </p>
     </div>
 
     <!-- Case Studies Stacked Cards -->
-    <div class="space-y-10">
+    <div class="space-y-12">
       {featuredProjects.map((project, idx) => (
         <article class="rk-card p-6 sm:p-10 space-y-6">
           <!-- Card Header -->
@@ -102,10 +102,24 @@ const cardStickerColors = ["rk-fill-lime", "rk-fill-sky", "rk-fill-butter", "rk-
             </div>
           </div>
 
-          <!-- Card Footer: Tools & Request Details -->
-          <div class="pt-4 border-t border-[var(--line)] flex flex-wrap items-center justify-between gap-3">
+          <!-- Client Value Proposition Box (Targeted for Excel/Google Sheets Clients) -->
+          {project.clientBenefit && (
+            <div class="p-4 rounded-xl bg-[var(--paper)] border border-[var(--line)] flex items-start sm:items-center justify-between gap-3 font-mono-clean text-xs">
+              <div class="flex items-center gap-2 text-[var(--ink-soft)]">
+                <span class="text-[var(--red)] font-bold">💼</span>
+                <span><strong>Client Value:</strong> {project.clientBenefit}</span>
+              </div>
+              <span class="hidden sm:inline-block rk-sticker rk-fill-lime text-[10px] shrink-0">
+                Ready for Deployment
+              </span>
+            </div>
+          )}
+
+          <!-- Card Footer: Tools & Live Sheet / Template Actions -->
+          <div class="pt-4 border-t border-[var(--line)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <!-- Tools Pills -->
             <div class="flex flex-wrap items-center gap-1.5 font-mono-clean text-xs">
-              <span class="text-[var(--ink-muted)] mr-1">Tools:</span>
+              <span class="text-[var(--ink-muted)] mr-1">Stack:</span>
               {project.tools.map((tool) => (
                 <span class="px-2.5 py-1 rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--ink-soft)]">
                   {tool}
@@ -113,13 +127,40 @@ const cardStickerColors = ["rk-fill-lime", "rk-fill-sky", "rk-fill-butter", "rk-
               ))}
             </div>
 
-            <a
-              href="#contact"
-              class="font-mono-clean text-xs font-bold text-[var(--ink)] hover:text-[var(--red)] transition-colors flex items-center gap-1"
-            >
-              <span>Discuss this case study</span>
-              <span>↗</span>
-            </a>
+            <!-- Live Google Sheet / CSV Template Actions -->
+            <div class="flex flex-wrap items-center gap-2.5 pt-2 sm:pt-0">
+              {project.sheetUrl && (
+                <a
+                  href={project.sheetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rk-btn rk-btn--ink py-2 px-3.5 text-xs font-mono-clean"
+                  title="Open live Google Sheet view"
+                >
+                  <span class="w-2 h-2 rounded-full bg-[var(--lime)] inline-block"></span>
+                  <span>View Google Sheet ↗</span>
+                </a>
+              )}
+
+              {project.csvUrl && (
+                <a
+                  href={project.csvUrl}
+                  download
+                  class="rk-btn rk-btn--out py-2 px-3.5 text-xs font-mono-clean"
+                  title="Download sample spreadsheet CSV"
+                >
+                  <span>Sample Data (.csv) ↓</span>
+                </a>
+              )}
+
+              <a
+                href="#contact"
+                class="font-mono-clean text-xs font-bold text-[var(--ink-muted)] hover:text-[var(--red)] transition-colors py-2 px-1 flex items-center gap-1"
+              >
+                <span>Inquire</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
         </article>
       ))}

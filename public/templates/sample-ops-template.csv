@@ -1,0 +1,8 @@
+Date,Activity_ID,Classroom,Teacher_Name,Scheduled_Time,Status,Attendance,Quality_Score,Notes
+2026-11-18,ACT-1092,Classroom-01,Md. Karim,09:00 AM,Completed,142,98%,On-time start
+2026-11-18,ACT-1093,Classroom-02,Farhana Yasmin,10:30 AM,Completed,95,100%,Interactive poll conducted
+2026-11-18,ACT-1094,Classroom-03,Tanvir Ahmed,11:00 AM,Completed,180,96%,Slide materials shared
+2026-11-18,ACT-1095,Classroom-04,Nusrat Jahan,02:00 PM,Completed,210,99%,Zero technical latency
+2026-11-18,ACT-1096,Classroom-05,Rakibul Hasan,04:00 PM,In-Progress,165,97%,Recording active
+2026-11-18,ACT-1097,Classroom-06,Sharmin Akter,06:00 PM,Scheduled,-,-,Teacher confirmed
+2026-11-18,ACT-1098,Classroom-07,Md. Al-Amin,07:30 PM,Scheduled,-,-,Checklist verified

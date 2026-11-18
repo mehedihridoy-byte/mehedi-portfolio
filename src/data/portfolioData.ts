@@ -10,7 +10,6 @@ export interface Project {
   metrics: { label: string; value: string }[];
   featured: boolean;
   badge?: string;
-  // Fields for showcasing real Google Sheets, Excel templates, and CSV files:
   sheetUrl?: string; // Live Google Sheet preview / template link
   csvUrl?: string;   // Direct downloadable CSV / sample file
   clientBenefit?: string; // Value proposition for prospective clients
@@ -57,10 +56,10 @@ export interface LearningItem {
 
 export const personalInfo = {
   name: "Md. Mehedi Hassan",
-  title: "Sr. Executive, Operations · Advanced Excel & Google Sheets Specialist",
-  currentRole: "Sr. Executive, Operations at Shikho Technologies Bangladesh",
+  title: "Operations Lead · Advanced Excel & Google Sheets Specialist",
+  currentRole: "Operations Lead at Shikho Technologies Bangladesh",
   tagline: "Engineering enterprise-grade Google Sheets, advanced Excel models, and automated Apps Script workflows for high-growth businesses and operational teams.",
-  shortBio: "Currently Senior Executive, Operations at Shikho Technologies Bangladesh with 5+ years scaling operations across 12,000+ live sessions and leading a 6-member team. I partner with business owners and operations leaders to replace tedious manual spreadsheets with automated, error-free Google Sheets and dynamic Excel systems.",
+  shortBio: "Currently Operations Lead at Shikho Technologies Bangladesh with 5+ years scaling operations across 12,000+ workflows and content operations and leading a 6-member team. I partner with business owners and operations leaders to replace tedious manual spreadsheets with automated, error-free Google Sheets and dynamic Excel systems.",
   location: "Dhaka, Bangladesh",
   statusBadge: "Available for Excel & Google Sheets Client Projects",
   phone: "+880 1970 300 717",
@@ -73,8 +72,8 @@ export const personalInfo = {
 };
 
 export const keyMetrics = [
-  { value: "12,000+", label: "Live Sessions Managed", subtext: "at Shikho Technologies" },
-  { value: "4,200+", label: "Personally Monitored", subtext: "with 100% QA compliance" },
+  { value: "12,000+", label: "Workflows & Content Managed", subtext: "at Shikho Technologies" },
+  { value: "4,200+", label: "Personally QA Audited", subtext: "with 100% data integrity" },
   { value: "5+ Years", label: "Operations & Sheets", subtext: "scaling multi-team systems" },
   { value: "120+ Hrs", label: "Monthly Time Saved", subtext: "via Apps Script automation" },
 ];
@@ -107,8 +106,8 @@ export const coreExpertise = [
   {
     title: "Operations & Resource Planning",
     icon: "Workflow",
-    description: "5+ years managing high-volume operations: coordinating 30+ daily live classes across 7 physical classrooms, optimizing teacher schedules, and managing SLAs.",
-    tags: ["Resource Planning", "Classroom Operations", "Capacity Optimization", "SOP Creation", "Cost Reduction"],
+    description: "5+ years managing high-volume operations: coordinating 30+ daily operational schedules, optimizing content workflows, and managing SLAs.",
+    tags: ["Resource Planning", "Operational Workflows", "Capacity Optimization", "SOP Creation", "Cost Reduction"],
   },
   {
     title: "Team Leadership & Data Governance",
@@ -121,27 +120,27 @@ export const coreExpertise = [
 export const featuredProjects: Project[] = [
   {
     id: "live-operations-management-system",
-    title: "Automated Live Class Operations Management System",
-    subtitle: "Real-time Google Sheets tracking system coordinating 30+ daily classes across 7 classrooms",
+    title: "Automated Operations & Content Management System",
+    subtitle: "Real-time Google Sheets tracking system coordinating 30+ daily operational schedules and content workflows",
     category: "Google Sheets & Apps Script",
-    problem: "Coordinating 30+ daily high-stakes live classes across 7 physical classrooms with multiple instructors and technical teams resulted in scheduling overlaps, communication latency, and delayed issue resolution.",
-    solution: "Built a centralized Google Sheets command center powered by Google Apps Script that automatically aggregates classroom schedules, tracks live status, verifies teacher checklists, and alerts managers instantly upon any delay.",
+    problem: "Coordinating 30+ daily high-stakes operational workflows across multiple teams resulted in scheduling overlaps, communication latency, and delayed issue resolution.",
+    solution: "Built a centralized Google Sheets command center powered by Google Apps Script that automatically aggregates daily schedules, tracks live status, verifies operational checklists, and alerts managers instantly upon any delay.",
     tools: ["Google Sheets", "Google Apps Script", "QUERY", "Event Triggers", "Conditional Formatting"],
     outcomes: [
-      "Successfully scaled to manage 12,000+ live classes with zero scheduling collision",
+      "Successfully scaled to manage 12,000+ operational workflows with zero scheduling collision",
       "Cut incident response time from 15 minutes to under 60 seconds",
-      "Maintained 99.8% on-time class start rate across 7 concurrent studios",
+      "Maintained 99.8% on-time execution rate across all active workflows",
     ],
     metrics: [
-      { label: "Classes Scaled", value: "12,000+" },
-      { label: "Classrooms", value: "7 Studios" },
+      { label: "Workflows Scaled", value: "12,000+" },
+      { label: "Active Tracks", value: "7 Concurrent" },
       { label: "Incident Latency", value: "< 60s" },
     ],
     featured: true,
     badge: "Enterprise Scale",
     sheetUrl: "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit?usp=sharing",
     csvUrl: "/templates/sample-ops-template.csv",
-    clientBenefit: "Ideal for training centers, edtech companies, and coaching institutes needing flawless daily session scheduling.",
+    clientBenefit: "Ideal for business operations, edtech companies, and agencies needing flawless daily workflow scheduling.",
   },
   {
     id: "enterprise-cross-department-reporting",
@@ -193,7 +192,7 @@ export const featuredProjects: Project[] = [
   {
     id: "operational-kpi-performance-dashboard",
     title: "1,000+ Activity KPI Performance & SLA Tracking Dashboard",
-    subtitle: "Executive tracking dashboard monitoring team output, classroom efficiency, and operational bottlenecks",
+    subtitle: "Executive tracking dashboard monitoring team output, operational efficiency, and process bottlenecks",
     category: "Data Analytics & Dashboards",
     problem: "Leadership lacked transparent, real-time visibility into daily team activities, SLA fulfillment rates, and operational delay patterns across busy quarterly cycles.",
     solution: "Constructed a comprehensive visual KPI tracking dashboard in Google Sheets utilizing custom QUERY formulas, timeline slicers, visual progress indicators, and automated weekly summaries for management reviews.",
@@ -241,19 +240,19 @@ export const featuredProjects: Project[] = [
 export const experienceData: ExperienceItem[] = [
   {
     period: "2024 – PRESENT",
-    role: "Senior Executive Operations",
+    role: "Operations Lead",
     company: "Shikho Technologies Bangladesh",
     location: "Dhaka, Bangladesh",
     type: "Full-time",
-    description: "Leading a 6-member Operations team, managing daily workload, performance, and high-volume live class operations. Architecting automated Google Sheets and Google Apps Script dashboards to optimize operational workflows.",
+    description: "Leading a 6-member Operations team, managing daily workload, performance, and high-volume operations & content workflows. Architecting automated Google Sheets and Google Apps Script dashboards to optimize operational workflows.",
     achievements: [
       "Led a 6-member Operations team, with all members reporting directly, managing daily workload, performance, and operational execution.",
-      "Managed 12,000+ live classes and personally monitored 4,200+ classes, ensuring on-time execution, quality control, issue resolution, and operational standards.",
-      "Managed 30+ daily classes across 7 classrooms, coordinating teachers, schedules, resources, and technical operations while optimizing resource utilization and reducing operational costs.",
+      "Managed 12,000+ operational workflows and personally monitored 4,200+ sessions, ensuring on-time execution, quality control, issue resolution, and operational standards.",
+      "Managed 30+ daily operational schedules across 7 studios, coordinating instructors, schedules, resources, and technical operations while optimizing resource utilization and reducing operational costs.",
       "Built automated dashboards using Google Sheets & Google Apps Script, reducing manual work and improving operational tracking, reporting, and data-driven decision-making.",
       "KPI tracking and operational reporting for 1,000+ activities, improving performance visibility and enabling timely follow-up on operational gaps.",
     ],
-    skills: ["Google Sheets & Apps Script", "Team Leadership (6 Members)", "12,000+ Classes Scaled", "Resource Planning", "KPI Dashboards"],
+    skills: ["Google Sheets & Apps Script", "Team Leadership (6 Members)", "12,000+ Workflows Scaled", "Resource Planning", "KPI Dashboards"],
   },
   {
     period: "2022 – 2024",
@@ -261,13 +260,13 @@ export const experienceData: ExperienceItem[] = [
     company: "Shikho Technologies Bangladesh",
     location: "Dhaka, Bangladesh",
     type: "Full-time",
-    description: "Developed and standardized daily operational processes, checklists, and cross-functional coordination across 7 concurrent classrooms.",
+    description: "Developed and standardized daily operational processes, checklists, and cross-functional coordination across 7 concurrent studios.",
     achievements: [
-      "Developed and standardized daily operational processes and checklists across 7 classrooms, improving workflow consistency and smooth execution.",
+      "Developed and standardized daily operational processes and checklists across 7 studios, improving workflow consistency and smooth execution.",
       "Identified and resolved recurring operational bottlenecks through data analysis, issue tracking, and cross-functional coordination, improving process efficiency and reducing operational delays.",
-      "Maintained strict quality control for classroom academic assets, recordings, and live event logistics.",
+      "Maintained strict quality control for operational assets, recordings, and live event logistics.",
     ],
-    skills: ["Process Standardization", "7 Classrooms Governance", "Bottleneck Elimination", "Data Analysis", "Cross-functional Coordination"],
+    skills: ["Process Standardization", "7 Studios Governance", "Bottleneck Elimination", "Data Analysis", "Cross-functional Coordination"],
   },
   {
     period: "2021 – 2022",
@@ -275,13 +274,13 @@ export const experienceData: ExperienceItem[] = [
     company: "Shikho Technologies Bangladesh",
     location: "Dhaka, Bangladesh",
     type: "Full-time",
-    description: "Executed live class operations, coordinated teacher schedules, monitored classes, and managed academic resources.",
+    description: "Executed live operations, coordinated instructor schedules, monitored sessions, and managed operational resources.",
     achievements: [
-      "Executed Live Class Operations, coordinating teachers, monitoring classes, managing schedules, and resolving operational issues on the ground.",
-      "Supported resource development and reviewed recordings, PDFs, and academic materials for content quality and accuracy.",
+      "Executed live operations, coordinating instructors, monitoring sessions, managing schedules, and resolving operational issues on the ground.",
+      "Supported resource development and reviewed recordings, PDFs, and content materials for operational quality and accuracy.",
       "Identified operational bottlenecks, coordinated issue resolution, and improved daily workflows and processes.",
     ],
-    skills: ["Live Operations", "Teacher Coordination", "Schedule Management", "Resource Quality Check", "Issue Resolution"],
+    skills: ["Live Operations", "Schedule Management", "Resource Quality Check", "Issue Resolution", "Workflow Optimization"],
   },
 ];
 
@@ -369,9 +368,9 @@ export const skillsCategories: SkillCategory[] = [
     skills: [
       { name: "Operations Management (5+ Years)", level: "Expert", highlight: true },
       { name: "Team Leadership (6-Member Direct Reports)", level: "Expert", highlight: true },
-      { name: "Live Class Operations (12,000+ Sessions)", level: "Expert", highlight: true },
+      { name: "High-Volume Operations (12,000+ Workflows)", level: "Expert", highlight: true },
       { name: "Standard Operating Procedures (SOPs)", level: "Expert", highlight: true },
-      { name: "Resource & Classroom Allocation", level: "Expert" },
+      { name: "Resource & Studio Allocation", level: "Expert" },
       { name: "Stakeholder Management & Quality Control", level: "Expert" },
     ],
   },

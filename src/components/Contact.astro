@@ -29,21 +29,21 @@ import { personalInfo } from '../data/portfolioData';
         <!-- Copy & Action Buttons (8 cols) -->
         <div class="lg:col-span-8 space-y-6">
           <p class="font-sans-clean text-lg sm:text-xl text-[var(--ink-soft)] leading-relaxed max-w-xl">
-            Have a messy Google Sheet, need a custom Apps Script automation, or looking to build an executive KPI dashboard? Whether you need consulting or a full-time operational lead, let's connect.
+            Drowning in messy Excel or Google Sheets, need custom Apps Script or VBA automations, or want a dynamic KPI dashboard built from scratch? Whatever your spreadsheet needs—whether project consulting or a full-time operational lead—let's connect.
           </p>
 
-          <div class="flex flex-wrap items-center gap-3">
+          <div class="flex flex-wrap items-center gap-3 pt-1">
             <a
               href="https://wa.me/8801970300717"
               target="_blank"
               rel="noopener noreferrer"
-              class="rk-btn rk-btn--ink font-mono-clean text-xs"
+              class="rk-btn rk-btn--ink font-mono-clean text-xs whitespace-nowrap"
             >
               WhatsApp (+880 1970 300 717) ↗
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              class="rk-btn rk-btn--out font-mono-clean text-xs"
+              class="rk-btn rk-btn--out font-mono-clean text-xs whitespace-nowrap"
             >
               {personalInfo.email}
             </a>
@@ -51,23 +51,30 @@ import { personalInfo } from '../data/portfolioData';
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              class="rk-btn rk-btn--out font-mono-clean text-xs"
+              class="rk-btn rk-btn--out font-mono-clean text-xs whitespace-nowrap"
             >
               LinkedIn ↗
             </a>
           </div>
         </div>
 
-        <!-- Live Dhaka Clock Widget (4 cols) (Exact signature widget from rifatbinalam.com) -->
-        <div class="lg:col-span-4 p-6 rounded-2xl bg-[var(--paper)] border border-[var(--ink)] shadow-[var(--shadow-card)] text-center space-y-2">
-          <div class="font-mono-clean text-[11px] font-bold uppercase tracking-widest text-[var(--ink-muted)]">
-            IN DHAKA IT'S
-          </div>
-          <div id="dhaka-clock" class="font-display font-extrabold text-4xl sm:text-5xl text-[var(--ink)] tracking-tight">
-            --:--
-          </div>
-          <div class="font-mono-clean text-[11px] font-semibold text-[var(--red)] tracking-wider">
-            GMT+6 · USUALLY ONLINE
+        <!-- Live Dhaka Clock Widget (4 cols) (Exact signature widget with stable tabular numbers) -->
+        <div class="lg:col-span-4 w-full flex justify-center lg:justify-end">
+          <div class="w-full max-w-[340px] p-6 sm:p-7 rounded-2xl bg-[var(--paper)] border border-[var(--ink)] shadow-[var(--shadow-card)] text-center space-y-2 flex flex-col justify-center items-center">
+            <div class="font-mono-clean text-[11px] font-bold uppercase tracking-widest text-[var(--ink-muted)]">
+              IN DHAKA IT'S
+            </div>
+            <!-- Monospace tabular numbers to prevent horizontal shifting/jitter -->
+            <div
+              id="dhaka-clock"
+              class="font-mono-clean font-bold text-3xl sm:text-4xl text-[var(--ink)] tracking-tight tabular-nums select-none min-h-[44px] flex items-center justify-center w-full"
+              style="font-variant-numeric: tabular-nums; font-feature-settings: 'tnum';"
+            >
+              --:--:-- --
+            </div>
+            <div class="font-mono-clean text-[11px] font-semibold text-[var(--red)] tracking-wider">
+              GMT+6 · USUALLY ONLINE
+            </div>
           </div>
         </div>
       </div>
@@ -82,7 +89,7 @@ import { personalInfo } from '../data/portfolioData';
 
     try {
       const now = new Date();
-      // Format time in Dhaka (Asia/Dhaka GMT+6)
+      // Format time in Dhaka (Asia/Dhaka GMT+6) with fixed width components
       const options: Intl.DateTimeFormatOptions = {
         timeZone: 'Asia/Dhaka',
         hour: '2-digit',

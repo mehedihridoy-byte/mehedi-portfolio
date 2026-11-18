@@ -65,7 +65,7 @@ export const personalInfo = {
   statusBadge: "Available for Excel & Google Sheets Client Projects",
   phone: "+880 1970 300 717",
   email: "mehedihassanhm17@gmail.com",
-  linkedin: "https://www.linkedin.com/in/mehedihassan-ops",
+  linkedin: "https://www.linkedin.com/in/md-mehedi-hassan-80481a333/",
   github: "https://github.com/mehedihridoy-byte",
   resumeUrl: "/resume-mehedi-hassan.pdf",
   photoUrl: "/mehedi-portrait.jpg",
